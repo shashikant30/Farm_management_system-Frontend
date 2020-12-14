@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'my-app';
+  color = 'white';
+  loggedIn : boolean = true;
+  logout(): void {
+    this.loggedIn = false;
+  }
+  login(): void {
+    this.loggedIn = true;
+  }
 }
