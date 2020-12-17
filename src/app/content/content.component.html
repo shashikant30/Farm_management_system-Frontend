@@ -1,12 +1,10 @@
-<mat-tab-group mat-align-tabs="start">
-    <mat-tab label="Farmer"><app-farmer></app-farmer></mat-tab>
-    <mat-tab label="Farm"><app-farm></app-farm></mat-tab>
-    <mat-tab label="Crop"><app-crop></app-crop></mat-tab>
-    <mat-tab label="Market"><app-market></app-market></mat-tab>
-    <mat-tab label="Labours"><app-labours></app-labours></mat-tab>
-    <mat-tab label="Warehouse"><app-warehouse></app-warehouse></mat-tab>
-    <mat-tab label="Pesticides">Content 3</mat-tab>
-    <mat-tab label="fertilizers">Content 3</mat-tab>
-    <mat-tab label="seeds">Content 3</mat-tab>
-    <mat-tab label="animal husbandary">Content 3</mat-tab>
-  </mat-tab-group>
+<nav mat-tab-nav-bar>
+  <a mat-tab-link
+  *ngFor="let link of navLinks"
+  [routerLink]="link.link"
+  routerLinkActive #rla="routerLinkActive"
+  [active]="rla.isActive">
+ {{link.label}}
+</a>
+</nav>
+<router-outlet></router-outlet>
