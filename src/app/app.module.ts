@@ -22,6 +22,8 @@ import { CropComponent } from './entities/crop/crop.component';
 import { MarketComponent } from './entities/market/market.component';
 import { LaboursComponent } from './entities/labours/labours.component';
 import { WarehouseComponent } from './entities/warehouse/warehouse.component';
+import { ContentServiceService } from './content/content-service.service'
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -48,9 +50,10 @@ import { WarehouseComponent } from './entities/warehouse/warehouse.component';
     MatButtonModule,
     MatCardModule,
     MatToolbarModule,
-    MatMenuModule
+    MatMenuModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ContentServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

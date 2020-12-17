@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'
+
 @Component({
   selector: 'app-content',
   templateUrl: './content.component.html',
@@ -10,31 +11,32 @@ export class ContentComponent implements OnInit {
   navLinks: any[];
   activeLinkIndex = -1;
 
+
   constructor(private router: Router) {
     this.navLinks = [
       {
           label: 'Farmer',
-          link: './farmer',
+          link: './api/farmer',
           index: 0
       }, {
           label: 'Farm',
-          link: './farm',
+          link: './api/farm',
           index: 1
       }, {
           label: 'Crop',
-          link: './crop',
+          link: './api/crop',
           index: 2
       }, {
           label: 'Market',
-          link: './market',
+          link: './api/market',
           index: 3
       }, {
           label: 'Labours',
-          link: './labours',
+          link: './api/labours',
           index: 4
       },  {
           label: 'Warehouse',
-          link: './warehouse',
+          link: './api/warehouse',
           index: 5
 /**      },  {
           label: 'Pesticides',
@@ -56,10 +58,9 @@ export class ContentComponent implements OnInit {
     ];
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.router.events.subscribe((res) => {
       this.activeLinkIndex = this.navLinks.indexOf(this.navLinks.find(tab => tab.link === '.' + this.router.url));
   });
   }
-
 }
