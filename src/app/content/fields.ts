@@ -6,3 +6,11 @@ export class fields {
     public address: string;
     public contact: number;
 }
+export class farm {
+    public farm_id: number;
+    public area: number;
+    public location: string;
+    public irrigation_src: string;
+    public farmer_id: number;
+    public f_id: number;
+}

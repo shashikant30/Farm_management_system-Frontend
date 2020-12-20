@@ -11,4 +11,7 @@ export class ContentServiceService {
   getData (){
     return this.http.get<any>('http://localhost:3000/farmer')
   }
+  getDataA (){
+    return this.http.get<any>('http://localhost:3000/farm')
+  }
 }
