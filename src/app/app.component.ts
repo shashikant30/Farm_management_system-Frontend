@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -8,11 +7,9 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'my-app';
   color = 'white';
-  loggedIn : boolean = true;
+  notLoggedIn : boolean = false;
   logout(): void {
-    this.loggedIn = false;
-  }
-  login(): void {
-    this.loggedIn = true;
+    this.notLoggedIn = true;
   }
 }
+

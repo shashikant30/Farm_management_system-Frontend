@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
+import { AppComponent} from '../app.component';
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
@@ -8,9 +8,12 @@ import { Router } from '@angular/router';
 })
 export class UserComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router, private app: AppComponent) { }
 
   ngOnInit(): void {
   }
-
+  login(): void {
+    this.router.navigate(['./about']);
+    this.app.notLoggedIn = false;
+  }
 }

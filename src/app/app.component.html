@@ -1,19 +1,46 @@
 <div class="home">
-  <mat-tab-group mat-align-tabs="end">
-    <mat-tab label="About"><app-about></app-about></mat-tab>
-    <div *ngIf="loggedIn; else notLoggedIn">
-      <mat-tab label="content"><app-content></app-content></mat-tab>
-      <mat-tab>
-        <ng-template mat-tab-label>
-            <span (click)="logout()">logout</span>
-        </ng-template>
-      </mat-tab>
+  <nav mat-tab-nav-bar mat-align-tabs="end">
+    <a mat-tab-link
+       [routerLink]="['./about']"
+       routerLinkActive #rla1="routerLinkActive"
+       [active]="rla1.isActive">
+      About
+    </a>
+    <div *ngIf="notLoggedIn; else loggedIn">
+    <a mat-tab-link
+      [routerLink]="['./user']"
+      routerLinkActive #rla4="routerLinkActive"
+      [active]="rla4.isActive">
+     User
+    </a>
+    <a mat-tab-link
+      [routerLink]="['./register']"
+      routerLinkActive #rla5="routerLinkActive"
+      [active]="rla5.isActive">
+     Register
+    </a>
+    <a mat-tab-link
+      [routerLink]="['./admin']"
+      routerLinkActive #rla6="routerLinkActive"
+      [active]="rla6.isActive">
+     Admin
+    </a>
     </div>
-    <ng-template #notLoggedIn>
-      <mat-tab label="User"><app-user></app-user></mat-tab>
-      <mat-tab label="Register"><app-user-sign-up></app-user-sign-up></mat-tab>
-      <mat-tab label="Admin"><app-admin></app-admin></mat-tab> 
+    <ng-template #loggedIn>
+    <a mat-tab-link
+      [routerLink]="['./api']"
+      routerLinkActive #rla2="routerLinkActive"
+      [active]="rla2.isActive">
+     Content
+    </a>
+    <a mat-tab-link
+      [routerLink]="['./logout']"
+      routerLinkActive #rla3="routerLinkActive"
+      [active]="rla3.isActive"
+      (click)=logout()>
+     Logout
+    </a>
     </ng-template>
-  </mat-tab-group>
+  </nav>
   <router-outlet></router-outlet>
 </div>

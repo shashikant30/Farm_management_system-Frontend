@@ -6,13 +6,27 @@ import { CropComponent } from './entities/crop/crop.component';
 import { MarketComponent } from './entities/market/market.component';
 import { LaboursComponent } from './entities/labours/labours.component';
 import { WarehouseComponent } from './entities/warehouse/warehouse.component';
+import { AboutComponent } from './about/about.component';
+import { ContentComponent } from './content/content.component';
+import { UserComponent } from './user/user.component';
+import { UserSignUpComponent } from './user-sign-up/user-sign-up.component';
 const routes:Routes = [
-  { path: 'api/farmer', component: FarmerComponent},
-  { path: 'api/farm', component: FarmComponent},
-  { path: 'api/crop', component: CropComponent},
-  { path: 'api/market', component: MarketComponent},
-  { path: 'api/labours', component: LaboursComponent}, 
-  { path: 'api/warehouse', component: WarehouseComponent }
+  { path: 'about', component: AboutComponent},
+  { path: 'api', component: ContentComponent,
+  children: [
+    {path: '', redirectTo: 'farmer', pathMatch: 'full'},
+    { path: 'farmer', component: FarmerComponent},
+    { path: 'farm', component: FarmComponent},
+    { path: 'crop', component: CropComponent},
+    { path: 'market', component: MarketComponent},
+    { path: 'labours', component: LaboursComponent}, 
+    { path: 'warehouse', component: WarehouseComponent }
+  ]
+  },
+  { path: 'logout', redirectTo: 'about', pathMatch: 'full'},
+  { path: 'user', component: UserComponent},
+  { path: 'register', component: UserSignUpComponent},
+  { path: 'admin', component: UserComponent}
 ];
 
 @NgModule({

@@ -16,27 +16,27 @@ export class ContentComponent implements OnInit {
     this.navLinks = [
       {
           label: 'Farmer',
-          link: './api/farmer',
+          link: 'farmer',
           index: 0
       }, {
           label: 'Farm',
-          link: './api/farm',
+          link: 'farm',
           index: 1
       }, {
           label: 'Crop',
-          link: './api/crop',
+          link: 'crop',
           index: 2
       }, {
           label: 'Market',
-          link: './api/market',
+          link: 'market',
           index: 3
       }, {
           label: 'Labours',
-          link: './api/labours',
+          link: 'labours',
           index: 4
       },  {
           label: 'Warehouse',
-          link: './api/warehouse',
+          link: 'warehouse',
           index: 5
 /**      },  {
           label: 'Pesticides',
@@ -56,7 +56,7 @@ export class ContentComponent implements OnInit {
 
   ngOnInit() {
     this.router.events.subscribe((res) => {
-      this.activeLinkIndex = this.navLinks.indexOf(this.navLinks.find(tab => tab.link === '.' + this.router.url));
+      this.activeLinkIndex = this.navLinks.indexOf(this.navLinks.find(tab => tab.link === './' + this.router.url));
   });
   }
 }
