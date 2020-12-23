@@ -11,6 +11,7 @@ import { ContentComponent } from './content/content.component';
 import { UserComponent } from './user/user.component';
 import { UserSignUpComponent } from './user-sign-up/user-sign-up.component';
 const routes:Routes = [
+  { path: '', redirectTo: 'about', pathMatch: 'full'},
   { path: 'about', component: AboutComponent},
   { path: 'api', component: ContentComponent,
   children: [
