@@ -14,3 +14,6 @@ export class farm {
     public farmer_id: number;
     public f_id: number;
 }
+export class login{
+    public farmer_id: number;
+}

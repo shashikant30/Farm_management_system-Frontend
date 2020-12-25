@@ -1,17 +1,17 @@
 <div class="example-container">
     <h1>User Login</h1>
-        <form>
+        <form (ngSubmit)="onSubmit(username.value, password.value)" novalidate>
             <mat-form-field appearance="fill">
                 <mat-label>Input</mat-label>
-                <input matInput>
+                <input matInput  type="text" [formControl]="username">
             </mat-form-field>
             <br>
             <mat-form-field appearance="fill">
                 <mat-label>password</mat-label>
-                <input matInput type="password">
+                <input matInput type="password" [formControl]="password">
             </mat-form-field>
             <br>
-            <button mat-raised-button type="submit" (click)=login()>Login</button>
+            <button mat-raised-button type="submit">Login</button>
             <br>
             <h3>New Here? <u>Register instead</u></h3>
         </form>

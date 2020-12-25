@@ -7,7 +7,7 @@ import { MatTabsModule } from '@angular/material/tabs'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AboutComponent } from './about/about.component';
 import { UserComponent } from './user/user.component';
-import { MatFormFieldModule } from '@angular/material/form-field'
+import { MatFormFieldModule} from '@angular/material/form-field'
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
@@ -24,6 +24,8 @@ import { LaboursComponent } from './entities/labours/labours.component';
 import { WarehouseComponent } from './entities/warehouse/warehouse.component';
 import { ContentServiceService } from './content/content-service.service'
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from "@angular/forms"; //
+
 
 @NgModule({
   declarations: [
@@ -51,9 +53,11 @@ import { HttpClientModule } from '@angular/common/http';
     MatCardModule,
     MatToolbarModule,
     MatMenuModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [ContentServiceService],
+  providers: [ContentServiceService, UserComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

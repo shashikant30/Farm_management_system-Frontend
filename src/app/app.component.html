@@ -6,7 +6,7 @@
        [active]="rla1.isActive">
       About
     </a>
-    <div *ngIf="notLoggedIn; else loggedIn">
+    <div *ngIf="NotLoggedIn(); else loggedIn">
     <a mat-tab-link
       [routerLink]="['./user']"
       routerLinkActive #rla4="routerLinkActive"
