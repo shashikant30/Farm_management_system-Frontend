@@ -11,7 +11,7 @@ export class AppComponent {
   notLoggedIn: boolean = false;
   NotLoggedIn(){
     let x=localStorage.getItem("notLoggedIn");
-    console.log(x);
+  //  console.log(x);
     if(x=="true"){
       this.notLoggedIn=true;
       return true;

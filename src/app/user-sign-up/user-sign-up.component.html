@@ -1,1 +1,55 @@
-<p>user-sign-up works!</p>
+<div class="example-container">
+        <form (ngSubmit)="onSubmit(username.value, password.value)" novalidate>
+            <mat-form-field appearance="fill">
+                <mat-label>Enter username of your choice</mat-label>
+                <input matInput  type="text" [formControl]="username">
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill">
+                <mat-label>password</mat-label>
+                <input matInput type="password" [formControl]="password">
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill">
+                <mat-label>Confirm password</mat-label>
+                <input matInput type="password" [formControl]="confirmPassword">
+            </mat-form-field>
+            <br>
+            <button mat-raised-button type="submit">Continue</button>
+            <br>
+        </form>
+        <div *ngIf="validCredential">
+            <h1>Complete Profile to register</h1>
+            <form (ngSubmit)="onSubmit1(username1.value, password1.value)" novalidate>
+                <mat-form-field appearance="fill">
+                    <mat-label>First name</mat-label>
+                    <input matInput  type="text" [formControl]="username1">
+                </mat-form-field>
+                <br>
+                <mat-form-field appearance="fill">
+                    <mat-label>Middle name</mat-label>
+                    <input matInput  type="text" [formControl]="username1">
+                </mat-form-field>
+                <br>
+                <mat-form-field appearance="fill">
+                    <mat-label>last name</mat-label>
+                    <input matInput  type="text" [formControl]="username1">
+                </mat-form-field>
+                <br>
+                <mat-form-field appearance="fill">
+                    <mat-label>Address</mat-label>
+                    <input matInput  type="text" [formControl]="username1">
+                </mat-form-field>
+                <br>
+                <br>
+                <mat-form-field appearance="fill">
+                    <mat-label>Contact</mat-label>
+                    <input matInput  type="number" [formControl]="username1">
+                </mat-form-field>
+                <br>
+                
+                <button mat-raised-button type="submit">Register</button>
+                <br>
+            </form>
+        </div>
+</div>

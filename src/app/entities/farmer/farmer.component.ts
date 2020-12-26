@@ -18,7 +18,7 @@ export class FarmerComponent implements OnInit {
     .subscribe(response=>{
       this.lstfields = response;
       });
-    console.log(this.user.sessionId);
+  //  console.log(this.user.sessionId);
   }
 
 }
