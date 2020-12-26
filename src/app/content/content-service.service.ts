@@ -9,11 +9,14 @@ export class ContentServiceService {
   constructor(private http: HttpClient) { 
 
    }
-  getData (x){
-    return this.http.get<any>(`http://localhost:3000/farmer/${x}`)
+  getFarmerProfile (farmer_id){
+    return this.http.get<any>(`http://localhost:3000/farmer/${farmer_id}`)
   }
-  getDataA (){
-    return this.http.get<any>('http://localhost:3000/farm')
+  getFarmInfo (farmer_id){
+    return this.http.get<any>(`http://localhost:3000/farm/${farmer_id}`)
+  }
+  login(username, password){
+    return this.http.get<any>(`http://localhost:3000/login/${username}/${password}`) 
   }
   
 }

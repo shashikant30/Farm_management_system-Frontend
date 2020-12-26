@@ -8,10 +8,11 @@ import { farm } from '../../content/fields';
 })
 export class FarmComponent implements OnInit {
   lstfields:farm[];
+  x=localStorage.getItem("sessionId");
   constructor(private service:ContentServiceService) { }
 
   ngOnInit(): void {
-    this.service.getDataA()
+    this.service.getFarmInfo(this.x)
     .subscribe(response=>{
       this.lstfields = response;
       });

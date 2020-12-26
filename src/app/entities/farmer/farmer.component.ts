@@ -14,7 +14,7 @@ export class FarmerComponent implements OnInit {
   constructor(private service: ContentServiceService, private user: UserComponent) { }
   
   ngOnInit(): void {
-    this.service.getData(this.x)
+    this.service.getFarmerProfile(this.x)
     .subscribe(response=>{
       this.lstfields = response;
       });

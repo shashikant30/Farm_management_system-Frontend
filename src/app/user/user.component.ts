@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import {FormControl, Validators} from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { login } from '../content/fields';
-import { Variable } from '@angular/compiler/src/render3/r3_ast';
+import { ContentServiceService } from '../content/content-service.service';
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
@@ -14,15 +14,13 @@ export class UserComponent implements OnInit {
   password = new FormControl('', [Validators.required]);
   public sessionId: login[];
   public x:string="";
-  constructor(private router: Router, private http: HttpClient) { }
+
+  constructor(private router: Router, private http: HttpClient,private service: ContentServiceService) { }
 
   ngOnInit(): void {
   }
-  login(username, password){
-    return this.http.get<any>(`http://localhost:3000/login/${username}/${password}`) 
-  }
   onSubmit(username, password){
-    this.login(username,password)
+    this.service.login(username,password)
     .subscribe(response => {
 //      console.log(response);
       this.sessionId = response;
