@@ -25,7 +25,7 @@ export class UserComponent implements OnInit {
 //      console.log(response);
       this.sessionId = response;
     });
-    this.x= this.sessionId[0].farmer_id.toString(10);
+    this.x= this.sessionId[0].F_id.toString(10);
     this.router.navigate(['./about']);
     localStorage.setItem("notLoggedIn", "false");
     localStorage.setItem("sessionId", this.x);

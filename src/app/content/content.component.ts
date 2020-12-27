@@ -38,7 +38,7 @@ export class ContentComponent implements OnInit {
           label: 'Warehouse',
           link: 'warehouse',
           index: 5
-/**      },  {
+      },  {
           label: 'Pesticides',
           link: './pesticides',
           index: 6
@@ -49,7 +49,7 @@ export class ContentComponent implements OnInit {
       },  {
           label: 'Seeds',
           link: './seeds',
-          index: 8 **/
+          index: 8 
       },  
     ];
   }

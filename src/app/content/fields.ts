@@ -1,10 +1,14 @@
 export class fields {
-    public farmer_id: number;
-    public farmer_fname: string;
-    public farmer_mname: string;
-    public farmer_lname: string;
-    public address: string;
-    public contact: number;
+    public F_id: number;
+    public F_fname: string;
+    public F_mname: string;
+    public F_lname: string;
+    public F_address: string;
+    public F_phoneNo: number;
+    public F_telephoneNo: number;
+    public F_gender: string;
+    public F_city: string;
+    public F_password: string;
 }
 export class farm {
     public farm_id: number;
@@ -15,5 +19,5 @@ export class farm {
     public f_id: number;
 }
 export class login{
-    public farmer_id: number;
+    public F_id: number;
 }
