@@ -3,20 +3,18 @@
 <button mat-stroked-button color="primary">Delete</button>
 <table>
     <tr>
-        <th>id</th>
-        <th>farmer_id</th>
         <th>farm_id</th>
+        <th>farmer_id</th>
         <th>area</th>
         <th>location</th>
         <th>irrigation_src</th>
     </tr>
     <tr *ngFor="let field of lstfields">
-        <td>{{field.f_id}}</td>
-        <td>{{field.farmer_id}}</td>
-        <td>{{field.farm_id}}</td>
-        <td>{{field.area}}</td>
-        <td>{{field.location}}</td>
-        <td>{{field.irrigation_src}}</td>
+        <td>{{field.Farm_id}}</td>
+        <td>{{field.F_id}}</td>
+        <td>{{field.Farm_area}}</td>
+        <td>{{field.Farm_location}}</td>
+        <td>{{field.Farm_irrigation_src}}</td>
 
     </tr>
 

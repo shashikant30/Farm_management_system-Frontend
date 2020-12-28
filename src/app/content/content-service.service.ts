@@ -13,7 +13,7 @@ export class ContentServiceService {
     return this.http.get<any>(`http://localhost:3000/farmer/${farmer_id}`)
   }
   getFarmInfo (farmer_id){
-    return this.http.get<any>(`http://localhost:3000/farm/${farmer_id}`)
+    return this.http.get<any>(`http://localhost:3000/farm_info/${farmer_id}`)
   }
   login(username, password){
     return this.http.get<any>(`http://localhost:3000/login/${username}/${password}`) 
