@@ -1,5 +1,5 @@
 &nbsp;<button mat-stroked-button color="primary" >Add</button>&nbsp;
-<button mat-stroked-button color="primary">Update</button>&nbsp;
+<button mat-stroked-button color="primary" (click)="update()">Update</button>&nbsp;
 <button mat-stroked-button color="primary">Delete</button>
 <table>
     <tr>
@@ -14,8 +14,40 @@
         <td>{{field.F_id}}</td>
         <td>{{field.Farm_area}}</td>
         <td>{{field.Farm_location}}</td>
-        <td>{{field.Farm_irrigation_src}}</td>
+        <td>{{field.Farm_irrigation_source}}</td>
 
     </tr>
 
 </table>
+<div>
+    <form (ngSubmit)="onSubmit()" [formGroup]="update1" novalidate>
+        <mat-form-field appearance="fill">
+            <mat-label>Enter Farm Id</mat-label>
+            <input matInput  type="number" formControlName="a">
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill">
+            <mat-label>Enter farmer_id</mat-label>
+            <input matInput  type="number" formControlName="b">
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill">
+            <mat-label>Enter Ares of farm</mat-label>
+            <input matInput  type="text" formControlName="c">
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill">
+            <mat-label>Enter location of Farm</mat-label>
+            <input matInput  type="text" formControlName="d">
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill">
+            <mat-label>Enter the Irrigation Source of Farm</mat-label>
+            <input matInput  type="text" formControlName="e">
+        </mat-form-field>
+        <br>
+        <button mat-raised-button type="submit">Add</button>
+        <br>
+        <button mat-raised-button type="submit" (click)="updatefarm()">update</button>
+    </form>
+</div>

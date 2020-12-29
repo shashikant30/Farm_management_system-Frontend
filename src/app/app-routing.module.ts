@@ -21,7 +21,10 @@ const routes:Routes = [
     { path: 'crop', component: CropComponent},
     { path: 'market', component: MarketComponent},
     { path: 'labours', component: LaboursComponent}, 
-    { path: 'warehouse', component: WarehouseComponent }
+    { path: 'warehouse', component: WarehouseComponent },
+    { path: 'pesticides', component: WarehouseComponent },
+    { path: 'fertilizers', component: WarehouseComponent },
+    { path: 'seeds', component: WarehouseComponent }
   ]
   },
   { path: 'logout', redirectTo: 'about', pathMatch: 'full'},

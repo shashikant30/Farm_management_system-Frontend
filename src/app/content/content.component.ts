@@ -40,15 +40,15 @@ export class ContentComponent implements OnInit {
           index: 5
       },  {
           label: 'Pesticides',
-          link: './pesticides',
+          link: 'pesticides',
           index: 6
       },  {
           label: 'Fertilizers',
-          link: './fertilizers',
+          link: 'fertilizers',
           index: 7
       },  {
           label: 'Seeds',
-          link: './seeds',
+          link: 'seeds',
           index: 8 
       },  
     ];

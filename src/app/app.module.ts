@@ -24,7 +24,7 @@ import { LaboursComponent } from './entities/labours/labours.component';
 import { WarehouseComponent } from './entities/warehouse/warehouse.component';
 import { ContentServiceService } from './content/content-service.service'
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule, ReactiveFormsModule } from "@angular/forms"; //
+import { FormsModule, ReactiveFormsModule } from "@angular/forms"; 
 
 
 @NgModule({

@@ -18,5 +18,7 @@ export class ContentServiceService {
   login(username, password){
     return this.http.get<any>(`http://localhost:3000/login/${username}/${password}`) 
   }
-  
+  updateFarmInfo(a, b, c, d, e, update1){
+    return this.http.post<any>(`http://localhost:3000/farm/update/${a}/${b}/${c}/${d}/${e}`,update1.value)
+  }
 }
