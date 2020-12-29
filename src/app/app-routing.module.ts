@@ -10,6 +10,10 @@ import { AboutComponent } from './about/about.component';
 import { ContentComponent } from './content/content.component';
 import { UserComponent } from './user/user.component';
 import { UserSignUpComponent } from './user-sign-up/user-sign-up.component';
+import { PesticidesComponent } from './entities/pesticides/pesticides.component';
+import { FertilizersComponent } from './entities/fertilizers/fertilizers.component';
+import { SeedsComponent } from './entities/seeds/seeds.component';
+
 const routes:Routes = [
   { path: '', redirectTo: 'about', pathMatch: 'full'},
   { path: 'about', component: AboutComponent},
@@ -22,9 +26,9 @@ const routes:Routes = [
     { path: 'market', component: MarketComponent},
     { path: 'labours', component: LaboursComponent}, 
     { path: 'warehouse', component: WarehouseComponent },
-    { path: 'pesticides', component: WarehouseComponent },
-    { path: 'fertilizers', component: WarehouseComponent },
-    { path: 'seeds', component: WarehouseComponent }
+    { path: 'pesticides', component: PesticidesComponent },
+    { path: 'fertilizers', component: FertilizersComponent },
+    { path: 'seeds', component: SeedsComponent }
   ]
   },
   { path: 'logout', redirectTo: 'about', pathMatch: 'full'},

@@ -1,19 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { ContentServiceService } from 'src/app/content/content-service.service';
-import { warehouse } from '../../content/fields';
+import { pesticides } from '../../content/fields';
 @Component({
-  selector: 'app-warehouse',
-  templateUrl: './warehouse.component.html',
-  styleUrls: ['./warehouse.component.css']
+  selector: 'app-pesticides',
+  templateUrl: './pesticides.component.html',
+  styleUrls: ['./pesticides.component.css']
 })
-export class WarehouseComponent implements OnInit {
-  lstfields:warehouse[];
+export class PesticidesComponent implements OnInit {
+  lstfields:pesticides[];
   x=localStorage.getItem("sessionId");
   constructor(private service:ContentServiceService, private fb: FormBuilder) { }
 
   ngOnInit(): void {
-    this.service.getWarehouseInfo(this.x)
+    this.service.getPesticidesInfo(this.x)
     .subscribe(response=>{
       this.lstfields = response;
       });

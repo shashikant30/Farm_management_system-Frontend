@@ -1,6 +1,6 @@
 &nbsp;<button mat-stroked-button color="primary" >Add</button>&nbsp;
-<button mat-stroked-button color="primary" (click)="update()">Update</button>&nbsp;
-<button mat-stroked-button color="primary">Delete</button>
+<button mat-stroked-button color="primary" (click)="loadData()">Update</button>&nbsp;
+<button mat-stroked-button color="primary"(click)="deleteFarm()">Delete</button>
 <table>
     <tr>
         <th>farm_id</th>
@@ -20,34 +20,34 @@
 
 </table>
 <div>
-    <form (ngSubmit)="onSubmit()" [formGroup]="update1" novalidate>
+    <form (ngSubmit)="addFarm()" [formGroup]="update1" novalidate>
         <mat-form-field appearance="fill">
             <mat-label>Enter Farm Id</mat-label>
-            <input matInput  type="number" formControlName="a">
+            <input matInput  type="number" formControlName="farm_id">
         </mat-form-field>
         <br>
         <mat-form-field appearance="fill">
             <mat-label>Enter farmer_id</mat-label>
-            <input matInput  type="number" formControlName="b">
+            <input matInput  type="number" formControlName="farmer_id">
         </mat-form-field>
         <br>
         <mat-form-field appearance="fill">
             <mat-label>Enter Ares of farm</mat-label>
-            <input matInput  type="text" formControlName="c">
+            <input matInput  type="text" formControlName="farm_area">
         </mat-form-field>
         <br>
         <mat-form-field appearance="fill">
             <mat-label>Enter location of Farm</mat-label>
-            <input matInput  type="text" formControlName="d">
+            <input matInput  type="text" formControlName="farm_location">
         </mat-form-field>
         <br>
         <mat-form-field appearance="fill">
             <mat-label>Enter the Irrigation Source of Farm</mat-label>
-            <input matInput  type="text" formControlName="e">
+            <input matInput  type="text" formControlName="farm_irrigation_source">
         </mat-form-field>
         <br>
         <button mat-raised-button type="submit">Add</button>
         <br>
-        <button mat-raised-button type="submit" (click)="updatefarm()">update</button>
+        <button mat-raised-button (click)="updateFarm()">update</button>
     </form>
 </div>

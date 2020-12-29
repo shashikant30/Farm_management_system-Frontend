@@ -12,39 +12,56 @@ export class FarmComponent implements OnInit {
   x=localStorage.getItem("sessionId");
   
   constructor(private service:ContentServiceService, private fb: FormBuilder) { }
+
   update1 = this.fb.group({
-    a: [''],
-    b: [''],
-    c: [''],
-    d: [''],
-    e: ['']
+    farm_id: [''],
+    farmer_id: [''],
+    farm_area: [''],
+    farm_location: [''],
+    farm_irrigation_source: ['']
     });
+
   ngOnInit(): void {
     this.service.getFarmInfo(this.x)
     .subscribe(response=>{
       this.lstfields = response;
       });
   }
-  onSubmit(): void{
-    console.log('sss');
+
+
+  addFarm(): void{
+    this.service.addFarmInfo(this.x,this.update1.value)
+    .subscribe(response=>{
+      console.log(response);
+    });
   }
-  update(): void {
+
+
+  loadData(): void {
     this.service.getFarmInfo(this.x)
     .subscribe(response=>{
         this.update1.patchValue({
-          a: response[0].Farm_id,
-          b: response[0].F_id,
-          c: response[0].Farm_area,
-          d: response[0].Farm_location,
-          e: response[0].Farm_irrigation_source
+          farm_id: response[0].Farm_id,
+          farmer_id: response[0].F_id,
+          farm_area: response[0].Farm_area,
+          farm_location: response[0].Farm_location,
+          farm_irrigation_source: response[0].Farm_irrigation_source
         });
       });
   }
-  updatefarm(): void{
-    this.service.updateFarmInfo(this.update1.value.a,this.update1.value.b,this.update1.value.c,this.update1.value.d,this.update1.value.e, this.update1.value)
+
+
+  updateFarm(): void{
+    this.service.updateFarmInfo(this.x , this.update1.value)
     .subscribe(response=>{
-     // this.lstfields = response;
      console.log(response);
+    });
+  }
+
+
+  deleteFarm(): void{
+    this.service.deleteFarm(13).subscribe(response=>{
+      console.log('sads')
     });
   }
 }

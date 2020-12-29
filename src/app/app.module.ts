@@ -24,7 +24,10 @@ import { LaboursComponent } from './entities/labours/labours.component';
 import { WarehouseComponent } from './entities/warehouse/warehouse.component';
 import { ContentServiceService } from './content/content-service.service'
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule, ReactiveFormsModule } from "@angular/forms"; 
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { PesticidesComponent } from './entities/pesticides/pesticides.component';
+import { FertilizersComponent } from './entities/fertilizers/fertilizers.component';
+import { SeedsComponent } from './entities/seeds/seeds.component'; 
 
 
 @NgModule({
@@ -40,7 +43,10 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
     CropComponent,
     MarketComponent,
     LaboursComponent,
-    WarehouseComponent
+    WarehouseComponent,
+    PesticidesComponent,
+    FertilizersComponent,
+    SeedsComponent
   ],
   imports: [
     BrowserModule,
