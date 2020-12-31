@@ -19,25 +19,25 @@ export class ContentServiceService {
     return this.http.get<any>(`http://localhost:3000/farm_info/${farmer_id}`)
   }
   getCropInfo (farmer_id){
-    return this.http.get<any>(`http://localhost:3000/Crop_info/${farmer_id}`)
+    return this.http.get<any>(`http://localhost:3000/crop_info/${farmer_id}`)
   }
   getWarehouseInfo (farmer_id){
-    return this.http.get<any>(`http://localhost:3000/Warehouse/${farmer_id}`)
+    return this.http.get<any>(`http://localhost:3000/warehouse/${farmer_id}`)
   }
   getCropMarketInfo (farmer_id){
-    return this.http.get<any>(`http://localhost:3000/Cropmarket/${farmer_id}`)
+    return this.http.get<any>(`http://localhost:3000/cropmarket/${farmer_id}`)
   }
   getLaboursInfo (farmer_id){
-    return this.http.get<any>(`http://localhost:3000/labourers/${farmer_id}`)
+    return this.http.get<any>(`http://localhost:3000/labours/${farmer_id}`)
   }
   getPesticidesInfo (farmer_id){
-    return this.http.get<any>(`http://localhost:3000/Pesticides/${farmer_id}`)
+    return this.http.get<any>(`http://localhost:3000/pesticides/${farmer_id}`)
   }
   getFertilizersInfo (farmer_id){
-    return this.http.get<any>(`http://localhost:3000/Fertilizers/${farmer_id}`)
+    return this.http.get<any>(`http://localhost:3000/fertilizers/${farmer_id}`)
   }
   getSeedsInfo (farmer_id){
-    return this.http.get<any>(`http://localhost:3000/Seeds/${farmer_id}`)
+    return this.http.get<any>(`http://localhost:3000/seeds/${farmer_id}`)
   }
 
 
@@ -45,10 +45,10 @@ export class ContentServiceService {
     return this.http.post<any>(`http://localhost:3000/farm_info/add/${update1.farm_id}/${update1.farmer_id}/${update1.farm_area}/${update1.farm_location}/${update1.farm_irrigation_source}`,update1.value)
   }
   updateFarmInfo(farmer_id, update1){
-    return this.http.post<any>(`http://localhost:3000/farm/update/${update1.farm_id}/${update1.farmer_id}/${update1.farm_area}/${update1.farm_location}/${update1.farm_irrigation_source}`,update1.value)
+    return this.http.post<any>(`http://localhost:3000/farm_info/update/${update1.farm_id}/${update1.farmer_id}/${update1.farm_area}/${update1.farm_location}/${update1.farm_irrigation_source}`,update1.value)
   }
   deleteFarm(farm_id){
-    return this.http.delete<any>(`http://localhost:3000/farm/delete/${farm_id}`)
+    return this.http.delete<any>(`http://localhost:3000/farm_info/delete/${farm_id}`)
   }
 
 

@@ -1,1 +1,25 @@
 <p>fertilizers works!</p>
+<table>
+    <tr>
+        <th>fertilizer_id</th>
+        <th>farmer_id</th>
+        <th>pesticide_id</th>
+        <th>seed_id</th>
+        <th>fertilizer_name</th>
+        <th>fertilizer_rate</th>
+        <th>fertilizer_quantity</th>
+        <th>company_name</th>
+        <th>formulation</th>
+    </tr>
+    <tr *ngFor="let field of lstfields">
+        <td>{{field.Fertilizer_id}}</td>
+        <td>{{field.F_id}}</td>
+        <td>{{field.Pesticide_id}}</td>
+        <td>{{field.seed_id}}</td>
+        <td>{{field.Fertilizer_name}}</td>
+        <td>{{field.Fertilizer_rate}}</td>
+        <td>{{field.Fertilizer_quantity}}</td>
+        <td>{{field.Company_name}}</td>
+        <td>{{field.formulation}}</td>
+    </tr>
+</table>

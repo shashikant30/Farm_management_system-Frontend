@@ -1,1 +1,27 @@
 <p>seeds works!</p>
+<table>
+    <tr>
+        <th>Seed_id</th>
+        <th>farmer_id</th>
+        <th>pesticide_id</th>
+        <th>fertilizer_id</th>
+        <th>Seed_name</th>
+        <th>Seed type</th>
+        <th>seed category</th>
+        <th>Seed_rate</th>
+        <th>Seed_quantity</th>
+        <th>company_name</th>
+    </tr>
+    <tr *ngFor="let field of lstfields">
+        <td>{{field.Seed_id}}</td>
+        <td>{{field.F_id}}</td>
+        <td>{{field.Pesticide_id}}</td>
+        <td>{{field.Fertilizer_id}}</td>
+        <td>{{field.Seed_name}}</td>
+        <td>{{field.Seed_type}}</td>
+        <td>{{field.Seed_category}}</td>
+        <td>{{field.Seed_rate}}</td>
+        <td>{{field.Seed_quantity}}</td>
+        <td>{{field.Company_name}}</td>
+    </tr>
+</table>

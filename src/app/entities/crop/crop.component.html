@@ -1,3 +1,19 @@
 &nbsp;<button mat-stroked-button color="primary">Add</button>&nbsp;
 <button mat-stroked-button color="primary">Update</button>&nbsp;
 <button mat-stroked-button color="primary">Delete</button>
+<table>
+    <tr>
+        <th>crop_id</th>
+        <th>farmer_id</th>
+        <th>crop_name</th>
+        <th>crop_quantity</th>
+        <th>farm_id</th>
+    </tr>
+    <tr *ngFor="let field of lstfields">
+        <td>{{field.Crop_id}}</td>
+        <td>{{field.F_id}}</td>
+        <td>{{field.Crop_name}}</td>
+        <td>{{field.Crop_quantity}}</td>
+        <td>{{field.Farm_id}}</td>
+    </tr>
+</table>

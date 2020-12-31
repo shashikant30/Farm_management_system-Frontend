@@ -1,3 +1,35 @@
 &nbsp;<button mat-stroked-button color="primary">Add</button>&nbsp;
 <button mat-stroked-button color="primary">Update</button>&nbsp;
 <button mat-stroked-button color="primary">Delete</button>
+<table>
+    <tr>
+        <th>labour_id</th>
+        <th>farmer_id</th>
+        <th>first name</th>
+        <th>middle name</th>
+        <th>last name</th>
+        <th>address</th>
+        <th>phone</th>
+        <th>telephone</th>
+        <th>work</th>
+        <th>working hours</th>
+        <th>salary</th>
+        <th>city</th>
+        <th>crop id</th>
+    </tr>
+    <tr *ngFor="let field of lstfields">
+        <td>{{field.L_id}}</td>
+        <td>{{field.F_id}}</td>
+        <td>{{field.L_fname}}</td>
+        <td>{{field.L_mname}}</td>
+        <td>{{field.L_lname}}</td>
+        <td>{{field.L_address}}</td>
+        <td>{{field.L_phoneNo}}</td>
+        <td>{{field.L_telephoneNo}}</td>
+        <td>{{field.Work}}</td>
+        <td>{{field.Working_hours}}</td>
+        <td>{{field.Salary}}</td>
+        <td>{{field.L_city}}</td>
+        <td>{{field.CropId}}</td>
+    </tr>
+</table>
