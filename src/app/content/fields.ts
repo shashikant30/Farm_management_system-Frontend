@@ -62,23 +62,23 @@ export class pesticides {
     public Pesticide_id: number;
     public F_id: number;
     public Fertilizer_id: number;
-    public seed_id: number;
+    public Seed_id: number;
     public Pesticide_name: string;
     public Pesticide_rate: number;
     public Pestiicde_quantity: string;
     public Company_name: string;
-    public formulation: string;
+    public Formulation: string;
 }
 export class fertilizers {
     public Fertilizer_id: number;
     public F_id: number;
     public Pesticide_id: number;
-    public seed_id: number;
+    public Seed_id: number;
     public Fertilizer_name: string;
     public Fertilizer_rate: number;
     public Fertilizer_quantity: string;
     public Company_name: string;
-    public formulation: string;
+    public Formulation: string;
 }
 export class seeds {
     public Seed_id: number;
