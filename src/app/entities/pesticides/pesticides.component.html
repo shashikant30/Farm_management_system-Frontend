@@ -25,3 +25,54 @@
         <td>{{field.Formulation}}</td>
     </tr>
 </table>
+<div>
+    <form (ngSubmit)="addPesticide()" [formGroup]="Pesticide" novalidate>
+        <mat-form-field appearance="fill">
+            <mat-label>pesticide id</mat-label>
+            <input matInput  type="number" formControlName="pesticide_id">
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill">
+            <mat-label>farmer_id</mat-label>
+            <input matInput  type="number" formControlName="farmer_id">
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill">
+            <mat-label>fertilizer id</mat-label>
+            <input matInput  type="number" formControlName="fertilizer_id">
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill">
+            <mat-label>seed id</mat-label>
+            <input matInput  type="number" formControlName="seed_id">
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill">
+            <mat-label>pesticide name</mat-label>
+            <input matInput  type="text" formControlName="pesticide_name">
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill">
+            <mat-label>pesticide rate</mat-label>
+            <input matInput  type="number" formControlName="pesticide_rate">
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill">
+            <mat-label>pesticide quantity</mat-label>
+            <input matInput  type="text" formControlName="pesticide_quantity">
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill">
+            <mat-label>company</mat-label>
+            <input matInput  type="text" formControlName="company_name">
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill">
+            <mat-label>formulation</mat-label>
+            <input matInput  type="text" formControlName="formulation">
+        </mat-form-field>
+        <br>
+        <button mat-raised-button type="submit">Add</button>
+        <button mat-raised-button (click)="updateFarm()">update</button>
+    </form>
+</div>

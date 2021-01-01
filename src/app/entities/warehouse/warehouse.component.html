@@ -4,6 +4,7 @@
 <table>
     <tr>
         <th>crop_id</th>
+        <th>warehouse id</th>
         <th>crop name</th>
         <th>crop_stored_quantity</th>
         <th>total capacity</th>
@@ -11,9 +12,46 @@
     </tr>
     <tr *ngFor="let field of lstfields">
         <td>{{field.Crop_id}}</td>
+        <td>{{field.Warehouse_id}}</td>
         <td>{{field.Crop_name}}</td>
         <td>{{field.Crop_stored_quantity}}</td>
         <td>{{field.Total_capacity}}</td>
         <td>{{field.F_id}}</td>
     </tr>
 </table>
+<div>
+    <form (ngSubmit)="addWarehouse()" [formGroup]="Warehouse" novalidate>
+        <mat-form-field appearance="fill">
+            <mat-label>crop Id</mat-label>
+            <input matInput  type="number" formControlName="crop_id">
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill">
+            <mat-label>warehouse id</mat-label>
+            <input matInput  type="number" formControlName="warehouse_id">
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill">
+            <mat-label>crop name</mat-label>
+            <input matInput  type="text" formControlName="crop_name">
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill">
+            <mat-label>crop stored</mat-label>
+            <input matInput  type="text" formControlName="crop_stored_quantity">
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill">
+            <mat-label>Total capacity</mat-label>
+            <input matInput  type="text" formControlName="total_capacity">
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill">
+            <mat-label>farmer_id</mat-label>
+            <input matInput  type="number" formControlName="farmer_id">
+        </mat-form-field>
+        <br>
+        <button mat-raised-button type="submit">Add</button>
+        <button mat-raised-button (click)="updateFarm()">update</button>
+    </form>
+</div>

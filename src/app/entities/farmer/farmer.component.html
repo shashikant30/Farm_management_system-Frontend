@@ -28,3 +28,53 @@
     </tr>
 
 </table>
+<div>
+    <form (ngSubmit)="updateFarmer()" [formGroup]="updatefarmer" novalidate>
+        <mat-form-field appearance="fill">
+            <mat-label>Enter farmer_id</mat-label>
+            <input matInput  type="number" formControlName="farmer_id">
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill">
+            <mat-label>First name</mat-label>
+            <input matInput  type="text" formControlName="farmer_fname">
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill">
+            <mat-label>Middle name</mat-label>
+            <input matInput  type="text" formControlName="farmer_mname">
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill">
+            <mat-label>last name</mat-label>
+            <input matInput  type="text" formControlName="farmer_lname">
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill">
+            <mat-label>Address</mat-label>
+            <input matInput  type="text" formControlName="farmer_address">
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill">
+            <mat-label>Phone no</mat-label>
+            <input matInput  type="number" formControlName="phone">
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill">
+            <mat-label>Telephone No</mat-label>
+            <input matInput  type="number" formControlName="telephone">
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill">
+            <mat-label>City</mat-label>
+            <input matInput  type="text" formControlName="city">
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill">
+            <mat-label>Password</mat-label>
+            <input matInput  type="password" formControlName="password">
+        </mat-form-field>
+        <br>
+        <button mat-raised-button (click)="updateFarm()">update</button>
+    </form>
+</div>

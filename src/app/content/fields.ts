@@ -29,6 +29,7 @@ export class crop {
 }
 export class warehouse {
     public Crop_id: number;
+    public Warehouse_id: number;
     public Crop_name: string;
     public Crop_stored_quantity: string;
     public Total_capacity: string;
@@ -41,6 +42,12 @@ export class crop_market {
     public Crop_id: number; 
     public Crop_category:  string;
     public Market_name: string;
+    public Market_district: string;
+    public Market_unit: string;
+    public Crop_quantity: string;
+    public Crop_price: number;
+    public Date_of_sold: Date;
+    public crop_name: string;
 }
 export class labours {
     
@@ -65,7 +72,7 @@ export class pesticides {
     public Seed_id: number;
     public Pesticide_name: string;
     public Pesticide_rate: number;
-    public Pestiicde_quantity: string;
+    public Pesticide_quantity: string;
     public Company_name: string;
     public Formulation: string;
 }
@@ -77,6 +84,7 @@ export class fertilizers {
     public Fertilizer_name: string;
     public Fertilizer_rate: number;
     public Fertilizer_quantity: string;
+    public Crop_id: number;
     public Company_name: string;
     public Formulation: string;
 }
