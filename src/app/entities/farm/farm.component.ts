@@ -38,7 +38,7 @@ export class FarmComponent implements OnInit {
     .subscribe(response=>{
       console.log(response);
     });
-    this.ngOnInit();
+    this.back();
   }
 
 
@@ -60,8 +60,8 @@ export class FarmComponent implements OnInit {
     this.service.updateFarmInfo(this.x , this.update1.value)
     .subscribe(response=>{
      console.log(response);
-     this.ngOnInit();
     });
+    this.back();
   }
 
 
@@ -73,6 +73,7 @@ export class FarmComponent implements OnInit {
   }
 
   back():void{
+    this.ngOnInit;
     this.buttonClicked="none";
   }
 

@@ -10,6 +10,7 @@ import { pesticides } from '../../content/fields';
 export class PesticidesComponent implements OnInit {
   lstfields:pesticides[];
   x=localStorage.getItem("sessionId");
+  buttonClicked:string="none";
   constructor(private service:ContentServiceService, private fb: FormBuilder) { }
 
   Pesticide = this.fb.group({
@@ -28,18 +29,49 @@ export class PesticidesComponent implements OnInit {
     this.service.getPesticidesInfo(this.x)
     .subscribe(response=>{
       this.lstfields = response;
-      this.Pesticide.patchValue({
-        pesticide_id: response[0].Pesticide_id,
-        farmer_id: response[0].F_id,
-        fertilizer_id: response[0].Fertilizer_id,
-        seed_id: response[0].Seed_id,
-        pesticide_name: response[0].Pesticide_name,
-        pesticide_rate: response[0].Pesticide_rate,
-        pesticide_quantity: response[0].Pesticide_quantity,
-        company_name: response[0].Company_name,
-        formulation: response[0].Formulation
-      });
+      
     });
+  }
+
+  add():void{
+    this.buttonClicked="add";
+    this.Pesticide.reset({});
+  }
+  addPesticide(): void{
+    
+  }
+
+
+  loadData(x): void {
+    this.buttonClicked="update";
+    this.lstfields.forEach(element => {
+      if(x==element.Pesticide_id){
+        this.Pesticide.patchValue({
+          pesticide_id: element.Pesticide_id,
+          farmer_id: element.F_id,
+          fertilizer_id: element.Fertilizer_id,
+          seed_id: element.Seed_id,
+          pesticide_name: element.Pesticide_name,
+          pesticide_rate: element.Pesticide_rate,
+          pesticide_quantity: element.Pesticide_quantity,
+          company_name: element.Company_name,
+          formulation: element.Formulation
+        });
+      }      
+    });
+  }
+  updatePesticide(): void{
+    
+  }
+
+
+  deletePesticide(x): void{
+    
+  }
+
+  back():void{
+    this.ngOnInit;
+    this.buttonClicked="none";
   }
 
 }

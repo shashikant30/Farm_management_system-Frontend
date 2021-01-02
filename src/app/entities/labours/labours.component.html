@@ -1,105 +1,119 @@
-&nbsp;<button mat-stroked-button color="primary">Add</button>&nbsp;
-<button mat-stroked-button color="primary">Update</button>&nbsp;
-<button mat-stroked-button color="primary">Delete</button>
-<table>
-    <tr>
-        <th>labour_id</th>
-        <th>farmer_id</th>
-        <th>first name</th>
-        <th>middle name</th>
-        <th>last name</th>
-        <th>address</th>
-        <th>phone</th>
-        <th>telephone</th>
-        <th>work</th>
-        <th>working hours</th>
-        <th>salary</th>
-        <th>city</th>
-        <th>crop id</th>
-    </tr>
-    <tr *ngFor="let field of lstfields">
-        <td>{{field.L_id}}</td>
-        <td>{{field.F_id}}</td>
-        <td>{{field.L_fname}}</td>
-        <td>{{field.L_mname}}</td>
-        <td>{{field.L_lname}}</td>
-        <td>{{field.L_address}}</td>
-        <td>{{field.L_phoneNo}}</td>
-        <td>{{field.L_telephoneNo}}</td>
-        <td>{{field.Work}}</td>
-        <td>{{field.Working_hours}}</td>
-        <td>{{field.Salary}}</td>
-        <td>{{field.L_city}}</td>
-        <td>{{field.CropId}}</td>
-    </tr>
-</table><div>
-    <form  [formGroup]="Labour" novalidate>
-        <mat-form-field appearance="fill">
-            <mat-label>labour id</mat-label>
-            <input matInput  type="number" formControlName="labour_id">
-        </mat-form-field>
-        <br>
-        <mat-form-field appearance="fill">
-            <mat-label>farmer_id</mat-label>
-            <input matInput  type="number" formControlName="farmer_id">
-        </mat-form-field>
-        <br>
-        <mat-form-field appearance="fill">
-            <mat-label>first name</mat-label>
-            <input matInput  type="text" formControlName="l_fname">
-        </mat-form-field>
-        <br>
-        <mat-form-field appearance="fill">
-            <mat-label>middle name</mat-label>
-            <input matInput  type="text" formControlName="l_mname">
-        </mat-form-field>
-        <br>
-        <mat-form-field appearance="fill">
-            <mat-label>last name</mat-label>
-            <input matInput  type="text" formControlName="l_lname">
-        </mat-form-field>
-        <br>
-        <mat-form-field appearance="fill">
-            <mat-label>Address</mat-label>
-            <input matInput  type="text" formControlName="l_address">
-        </mat-form-field>
-        <br>
-        <mat-form-field appearance="fill">
-            <mat-label>phone no</mat-label>
-            <input matInput  type="text" formControlName="l_phoneno">
-        </mat-form-field>
-        <br>
-        <mat-form-field appearance="fill">
-            <mat-label>telephone no</mat-label>
-            <input matInput  type="text" formControlName="l_telephoneno">
-        </mat-form-field>
-        <br>
-        <mat-form-field appearance="fill">
-            <mat-label>work</mat-label>
-            <input matInput  type="text" formControlName="work">
-        </mat-form-field>
-        <br>
-        <mat-form-field appearance="fill">
-            <mat-label>working hours</mat-label>
-            <input matInput  type="number" formControlName="working_hours">
-        </mat-form-field>
-        <br>
-        <mat-form-field appearance="fill">
-            <mat-label>salary</mat-label>
-            <input matInput  type="number" formControlName="salary">
-        </mat-form-field>
-        <br>
-        <mat-form-field appearance="fill">
-            <mat-label>city</mat-label>
-            <input matInput  type="text" formControlName="l_city">
-        </mat-form-field>
-        <br>
-        <mat-form-field appearance="fill">
-            <mat-label>crop id</mat-label>
-            <input matInput  type="number" formControlName="crop_id">
-        </mat-form-field>
-        <br>
-        <button mat-raised-button type="submit">Add</button>
-        <button mat-raised-button >update</button>
-    </form>
+&nbsp;<button mat-stroked-button color="primary" (click)="add()">Add new Labour</button>&nbsp;
+<br> <br>
+<div *ngIf="buttonClicked!='none'">
+    &nbsp;<button mat-raised-button (click)="back()">back</button>
 </div>
+<div *ngIf="buttonClicked=='none'; else abc" >
+    <table>
+        <tr>
+            <th>labour_id</th>
+            <th>farmer_id</th>
+            <th>first name</th>
+            <th>middle name</th>
+            <th>last name</th>
+            <th>address</th>
+            <th>phone</th>
+            <th>telephone</th>
+            <th>work</th>
+            <th>working hours</th>
+            <th>salary</th>
+            <th>city</th>
+            <th>crop id</th>
+        </tr>
+        <tr *ngFor="let field of lstfields">
+            <td>{{field.L_id}}</td>
+            <td>{{field.F_id}}</td>
+            <td>{{field.L_fname}}</td>
+            <td>{{field.L_mname}}</td>
+            <td>{{field.L_lname}}</td>
+            <td>{{field.L_address}}</td>
+            <td>{{field.L_phoneNo}}</td>
+            <td>{{field.L_telephoneNo}}</td>
+            <td>{{field.Work}}</td>
+            <td>{{field.Working_hours}}</td>
+            <td>{{field.Salary}}</td>
+            <td>{{field.L_city}}</td>
+            <td>{{field.CropId}}</td>
+            <td><button mat-raised-button (click)="loadData(field.L_id)">Update</button></td>
+            <td><button mat-raised-button (click)="deleteLabour(field.L_id)">Delete</button></td>
+        </tr>
+    </table> 
+</div>
+<ng-template #abc>
+    <div>
+        <form  [formGroup]="Labour" novalidate>
+            <mat-form-field appearance="fill">
+                <mat-label>labour id</mat-label>
+                <input matInput  type="number" formControlName="labour_id">
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill">
+                <mat-label>farmer_id</mat-label>
+                <input matInput  type="number" formControlName="farmer_id">
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill">
+                <mat-label>first name</mat-label>
+                <input matInput  type="text" formControlName="l_fname">
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill">
+                <mat-label>middle name</mat-label>
+                <input matInput  type="text" formControlName="l_mname">
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill">
+                <mat-label>last name</mat-label>
+                <input matInput  type="text" formControlName="l_lname">
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill">
+                <mat-label>Address</mat-label>
+                <input matInput  type="text" formControlName="l_address">
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill">
+                <mat-label>phone no</mat-label>
+                <input matInput  type="text" formControlName="l_phoneno">
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill">
+                <mat-label>telephone no</mat-label>
+                <input matInput  type="text" formControlName="l_telephoneno">
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill">
+                <mat-label>work</mat-label>
+                <input matInput  type="text" formControlName="work">
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill">
+                <mat-label>working hours</mat-label>
+                <input matInput  type="number" formControlName="working_hours">
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill">
+                <mat-label>salary</mat-label>
+                <input matInput  type="number" formControlName="salary">
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill">
+                <mat-label>city</mat-label>
+                <input matInput  type="text" formControlName="l_city">
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill">
+                <mat-label>crop id</mat-label>
+                <input matInput  type="number" formControlName="crop_id">
+            </mat-form-field>
+            <br>
+            <div *ngIf="buttonClicked=='add'; else xyz">
+                <button mat-raised-button type="submit" (click)="addLabour()">Add</button>
+            </div>
+            <ng-template #xyz>
+                <button mat-raised-button (click)="updateLabour()">update</button>
+            </ng-template>
+            
+        </form>
+    </div>
+</ng-template>

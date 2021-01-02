@@ -1,99 +1,112 @@
-&nbsp;<button mat-stroked-button color="primary">Add</button>&nbsp;
-<button mat-stroked-button color="primary">Update</button>&nbsp;
-<button mat-stroked-button color="primary">Delete</button>
-<table>
-    <tr>
-        <th>crop_market_id</th>
-        <th>farmer_id</th>
-        <th>warehouse id</th>
-        <th>crop_id</th>
-        <th>crop category</th>
-        <th>market name</th>
-        <th>market district</th>
-        <th>market unit</th>
-        <th>crop quantity</th>
-        <th>crop_ price</th>
-        <th>date of sold</th>
-        <th>crop name</th>
-    </tr>
-    <tr *ngFor="let field of lstfields">
-        <td>{{field.Crop_market_id}}</td>
-        <td>{{field.F_id}}</td>
-        <td>{{field.Warehouse_id}}</td>
-        <td>{{field.Crop_id}}</td>
-        <td>{{field.Crop_category}}</td>
-        <td>{{field.Market_name}}</td>
-        <td>{{field.Market_district}}</td>
-        <td>{{field.Market_unit}}</td>
-        <td>{{field.Crop_quantity}}</td>
-        <td>{{field.Crop_price}}</td>
-        <td>{{field.Date_od_sold}}</td>
-        <td>{{field.crop_name}}</td>
-    </tr>
-</table>
-<div>
-    <form  [formGroup]="Market" novalidate>
-        <mat-form-field appearance="fill">
-            <mat-label>Market Id</mat-label>
-            <input matInput  type="number" formControlName="crop_market_id">
-        </mat-form-field>
-        <br>
-        <mat-form-field appearance="fill">
-            <mat-label>farmer_id</mat-label>
-            <input matInput  type="number" formControlName="farmer_id">
-        </mat-form-field>
-        <br>
-        <mat-form-field appearance="fill">
-            <mat-label>warehouse_id</mat-label>
-            <input matInput  type="number" formControlName="warehouse_id">
-        </mat-form-field>
-        <br>
-        <mat-form-field appearance="fill">
-            <mat-label>crop_id</mat-label>
-            <input matInput  type="number" formControlName="crop_id">
-        </mat-form-field>
-        <br>
-        <mat-form-field appearance="fill">
-            <mat-label>crop category</mat-label>
-            <input matInput  type="text" formControlName="crop_category">
-        </mat-form-field>
-        <br>
-        <mat-form-field appearance="fill">
-            <mat-label>market name</mat-label>
-            <input matInput  type="text" formControlName="market_name">
-        </mat-form-field>
-        <br>
-        <mat-form-field appearance="fill">
-            <mat-label>market district</mat-label>
-            <input matInput  type="text" formControlName="market_district">
-        </mat-form-field>
-        <br>
-        <mat-form-field appearance="fill">
-            <mat-label>market unit</mat-label>
-            <input matInput  type="text" formControlName="market_unit">
-        </mat-form-field>
-        <br>
-        <mat-form-field appearance="fill">
-            <mat-label>crop quantity</mat-label>
-            <input matInput  type="text" formControlName="crop_quantity">
-        </mat-form-field>
-        <br>
-        <mat-form-field appearance="fill">
-            <mat-label>crop price</mat-label>
-            <input matInput  type="number" formControlName="crop_price">
-        </mat-form-field>
-        <br>
-        <mat-form-field appearance="fill">
-            <mat-label>date of sold</mat-label>
-            <input matInput  type="date" formControlName="date_of_sold">
-        </mat-form-field>
-        <br>
-        <mat-form-field appearance="fill">
-            <mat-label>crop name</mat-label>
-            <input matInput  type="text" formControlName="crop_name">
-        </mat-form-field>
-        <br>
-        <button mat-raised-button type="submit">Add</button>
-        <button mat-raised-button >update</button>
-    </form>
+&nbsp;<button mat-stroked-button color="primary" (click)="add()">Add new Market</button>&nbsp;
+<br> <br>
+<div *ngIf="buttonClicked!='none'">
+    &nbsp;<button mat-raised-button (click)="back()">back</button>
 </div>
+<div *ngIf="buttonClicked=='none'; else abc" >
+    <table>
+        <tr>
+            <th>crop_market_id</th>
+            <th>farmer_id</th>
+            <th>warehouse id</th>
+            <th>crop_id</th>
+            <th>crop category</th>
+            <th>market name</th>
+            <th>market district</th>
+            <th>market unit</th>
+            <th>crop quantity</th>
+            <th>crop_ price</th>
+            <th>date of sold</th>
+            <th>crop name</th>
+        </tr>
+        <tr *ngFor="let field of lstfields">
+            <td>{{field.Crop_market_id}}</td>
+            <td>{{field.F_id}}</td>
+            <td>{{field.Warehouse_id}}</td>
+            <td>{{field.Crop_id}}</td>
+            <td>{{field.Crop_category}}</td>
+            <td>{{field.Market_name}}</td>
+            <td>{{field.Market_district}}</td>
+            <td>{{field.Market_unit}}</td>
+            <td>{{field.Crop_quantity}}</td>
+            <td>{{field.Crop_price}}</td>
+            <td>{{field.Date_od_sold}}</td>
+            <td>{{field.crop_name}}</td>
+            <td><button mat-raised-button (click)="loadData(field.Crop_market_id)">Update</button></td>
+            <td><button mat-raised-button (click)="deleteMarket(field.Crop_market_id)">Delete</button></td>
+        </tr>
+    </table> 
+</div>
+<ng-template #abc>
+    <div>
+        <form  [formGroup]="Market" novalidate>
+            <mat-form-field appearance="fill">
+                <mat-label>Market Id</mat-label>
+                <input matInput  type="number" formControlName="crop_market_id">
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill">
+                <mat-label>farmer_id</mat-label>
+                <input matInput  type="number" formControlName="farmer_id">
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill">
+                <mat-label>warehouse_id</mat-label>
+                <input matInput  type="number" formControlName="warehouse_id">
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill">
+                <mat-label>crop_id</mat-label>
+                <input matInput  type="number" formControlName="crop_id">
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill">
+                <mat-label>crop category</mat-label>
+                <input matInput  type="text" formControlName="crop_category">
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill">
+                <mat-label>market name</mat-label>
+                <input matInput  type="text" formControlName="market_name">
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill">
+                <mat-label>market district</mat-label>
+                <input matInput  type="text" formControlName="market_district">
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill">
+                <mat-label>market unit</mat-label>
+                <input matInput  type="text" formControlName="market_unit">
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill">
+                <mat-label>crop quantity</mat-label>
+                <input matInput  type="text" formControlName="crop_quantity">
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill">
+                <mat-label>crop price</mat-label>
+                <input matInput  type="number" formControlName="crop_price">
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill">
+                <mat-label>date of sold</mat-label>
+                <input matInput  type="date" formControlName="date_of_sold">
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill">
+                <mat-label>crop name</mat-label>
+                <input matInput  type="text" formControlName="crop_name">
+            </mat-form-field>
+            <br>
+            <div *ngIf="buttonClicked=='add'; else xyz">
+                <button mat-raised-button type="submit" (click)="addMarket()">Add</button>
+            </div>
+            <ng-template #xyz>
+                <button mat-raised-button (click)="updateMarket()">update</button>
+            </ng-template>
+            
+        </form>
+    </div>
+</ng-template>

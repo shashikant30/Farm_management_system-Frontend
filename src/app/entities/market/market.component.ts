@@ -10,6 +10,7 @@ import { crop_market } from '../../content/fields';
 export class MarketComponent implements OnInit {
   lstfields:crop_market[];
   x=localStorage.getItem("sessionId");
+  buttonClicked: string= "none";
   constructor(private service:ContentServiceService, private fb: FormBuilder) { }
 
   Market = this.fb.group({
@@ -31,21 +32,52 @@ export class MarketComponent implements OnInit {
     this.service.getCropMarketInfo(this.x)
     .subscribe(response=>{
       this.lstfields = response;
-      this.Market.patchValue({
-        crop_market_id: response[0].Crop_market_id,
-        farmer_id: response[0].F_id,
-        warehouse_id: response[0].Warehouse_id,
-        crop_id: response[0].Crop_id,
-        crop_category: response[0].Crop_category,
-        market_name: response[0].Market_name,
-        market_district: response[0].Market_district,
-        market_unit: response[0].Market_unit,
-        crop_quantity: response[0].Crop_quantity,
-        crop_price: response[0].Crop_price,
-        date_of_sold: response[0].Date_of_sold,
-        crop_name: response[0].crop_name
+      
       });
-      });
+  }
+
+  add():void{
+    this.buttonClicked="add";
+    this.Market.reset({});
+  }
+  addMarket(): void{
+    
+  }
+
+
+  loadData(x): void {
+    this.buttonClicked="update";
+    this.lstfields.forEach(element => {
+      if(x==element.Crop_market_id){
+        this.Market.patchValue({
+          crop_market_id: element.Crop_market_id,
+          farmer_id: element.F_id,
+          warehouse_id: element.Warehouse_id,
+          crop_id: element.Crop_id,
+          crop_category: element.Crop_category,
+          market_name: element.Market_name,
+          market_district: element.Market_district,
+          market_unit: element.Market_unit,
+          crop_quantity: element.Crop_quantity,
+          crop_price: element.Crop_price,
+          date_of_sold: element.Date_of_sold,
+          crop_name: element.crop_name
+        });
+      }      
+    });
+  }
+  updateMarket(): void{
+    
+  }
+
+
+  deleteMarket(x): void{
+    
+  }
+
+  back():void{
+    this.ngOnInit;
+    this.buttonClicked="none";
   }
 
 }

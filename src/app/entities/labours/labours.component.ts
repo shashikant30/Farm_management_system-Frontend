@@ -10,6 +10,7 @@ import { labours } from '../../content/fields';
 export class LaboursComponent implements OnInit {
   lstfields:labours[];
   x=localStorage.getItem("sessionId");
+  buttonClicked: string="none";
   constructor(private service:ContentServiceService, private fb: FormBuilder) { }
 
   Labour = this.fb.group({
@@ -32,22 +33,53 @@ export class LaboursComponent implements OnInit {
     this.service.getLaboursInfo(this.x)
     .subscribe(response=>{
       this.lstfields = response;
-      this.Labour.patchValue({
-        labour_id: response[0].L_id,
-        farmer_id: response[0].F_id,
-        l_fname: response[0].L_fname,
-        l_mname: response[0].L_mname,
-        l_lname: response[0].L_lname,
-        l_address: response[0].L_address,
-        l_phoneno: response[0].L_phoneNo,
-        l_telephoneno: response[0].L_telephoneNo,
-        work: response[0].Work,
-        working_hours: response[0].Working_hours,
-        salary: response[0].Salary,
-        l_city: response[0].L_city,
-        crop_id: response[0].CropId
-        });
+      
       });
+  }
+
+  add():void{
+    this.buttonClicked="add";
+    this.Labour.reset({});
+  }
+  addLabour(): void{
+    
+  }
+
+
+  loadData(x): void {
+    this.buttonClicked="update";
+    this.lstfields.forEach(element => {
+      if(x==element.L_id){
+        this.Labour.patchValue({
+          labour_id: element.L_id,
+          farmer_id: element.F_id,
+          l_fname: element.L_fname,
+          l_mname: element.L_mname,
+          l_lname: element.L_lname,
+          l_address: element.L_address,
+          l_phoneno: element.L_phoneNo,
+          l_telephoneno: element.L_telephoneNo,
+          work: element.Work,
+          working_hours: element.Working_hours,
+          salary: element.Salary,
+          l_city: element.L_city,
+          crop_id: element.CropId
+          });
+      }      
+    });
+  }
+  updateLabour(): void{
+    
+  }
+
+
+  deleteLabour(x): void{
+    
+  }
+
+  back():void{
+    this.ngOnInit;
+    this.buttonClicked="none";
   }
 
 }

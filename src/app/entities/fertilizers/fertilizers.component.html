@@ -1,85 +1,99 @@
-&nbsp;<button mat-stroked-button color="primary">Add</button>&nbsp;
-<button mat-stroked-button color="primary">Update</button>&nbsp;
-<button mat-stroked-button color="primary">Delete</button>
-<table>
-    <tr>
-        <th>fertilizer_id</th>
-        <th>farmer_id</th>
-        <th>pesticide_id</th>
-        <th>seed_id</th>
-        <th>fertilizer_name</th>
-        <th>fertilizer_rate</th>
-        <th>fertilizer_quantity</th>
-        <th>crop_id</th>
-        <th>company_name</th>
-        <th>formulation</th>
-    </tr>
-    <tr *ngFor="let field of lstfields">
-        <td>{{field.Fertilizer_id}}</td>
-        <td>{{field.F_id}}</td>
-        <td>{{field.Pesticide_id}}</td>
-        <td>{{field.Seed_id}}</td>
-        <td>{{field.Fertilizer_name}}</td>
-        <td>{{field.Fertilizer_rate}}</td>
-        <td>{{field.Fertilizer_quantity}}</td>
-        <td>{{field.Crop_id}}</td>
-        <td>{{field.Company_name}}</td>
-        <td>{{field.Formulation}}</td>
-    </tr>
-</table>
-<div>
-    <form  [formGroup]="Fertilizer" novalidate>
-        <mat-form-field appearance="fill">
-            <mat-label>fertilizer id</mat-label>
-            <input matInput  type="number" formControlName="fertilizer_id">
-        </mat-form-field>
-        <br>
-        <mat-form-field appearance="fill">
-            <mat-label>farmer_id</mat-label>
-            <input matInput  type="number" formControlName="farmer_id">
-        </mat-form-field>
-        <br>
-        <mat-form-field appearance="fill">
-            <mat-label>pesticide id</mat-label>
-            <input matInput  type="number" formControlName="pesticide_id">
-        </mat-form-field>
-        <br>
-        <mat-form-field appearance="fill">
-            <mat-label>seed id</mat-label>
-            <input matInput  type="number" formControlName="seed_id">
-        </mat-form-field>
-        <br>
-        <mat-form-field appearance="fill">
-            <mat-label>fertilizer name</mat-label>
-            <input matInput  type="text" formControlName="fertilizer_name">
-        </mat-form-field>
-        <br>
-        <mat-form-field appearance="fill">
-            <mat-label>fertilizer rate</mat-label>
-            <input matInput  type="number" formControlName="fertilizer_rate">
-        </mat-form-field>
-        <br>
-        <mat-form-field appearance="fill">
-            <mat-label>fertilizer quantity</mat-label>
-            <input matInput  type="text" formControlName="fertilizer_quantity">
-        </mat-form-field>
-        <br>
-        <mat-form-field appearance="fill">
-            <mat-label>crop id</mat-label>
-            <input matInput  type="number" formControlName="crop_id">
-        </mat-form-field>
-        <br>
-        <mat-form-field appearance="fill">
-            <mat-label>company</mat-label>
-            <input matInput  type="text" formControlName="company_name">
-        </mat-form-field>
-        <br>
-        <mat-form-field appearance="fill">
-            <mat-label>formulation</mat-label>
-            <input matInput  type="text" formControlName="formulation">
-        </mat-form-field>
-        <br>
-        <button mat-raised-button type="submit">Add</button>
-        <button mat-raised-button >update</button>
-    </form>
+&nbsp;<button mat-stroked-button color="primary" (click)="add()">Add new fertilizer</button>&nbsp;
+<br> <br>
+<div *ngIf="buttonClicked!='none'">
+    &nbsp;<button mat-raised-button (click)="back()">back</button>
 </div>
+<div *ngIf="buttonClicked=='none'; else abc" >
+    <table>
+        <tr>
+            <th>fertilizer_id</th>
+            <th>farmer_id</th>
+            <th>pesticide_id</th>
+            <th>seed_id</th>
+            <th>fertilizer_name</th>
+            <th>fertilizer_rate</th>
+            <th>fertilizer_quantity</th>
+            <th>crop_id</th>
+            <th>company_name</th>
+            <th>formulation</th>
+        </tr>
+        <tr *ngFor="let field of lstfields">
+            <td>{{field.Fertilizer_id}}</td>
+            <td>{{field.F_id}}</td>
+            <td>{{field.Pesticide_id}}</td>
+            <td>{{field.Seed_id}}</td>
+            <td>{{field.Fertilizer_name}}</td>
+            <td>{{field.Fertilizer_rate}}</td>
+            <td>{{field.Fertilizer_quantity}}</td>
+            <td>{{field.Crop_id}}</td>
+            <td>{{field.Company_name}}</td>
+            <td>{{field.Formulation}}</td>
+            <td><button mat-raised-button (click)="loadData(field.Fertilizer_id)">Update</button></td>
+            <td><button mat-raised-button (click)="deleteFertilizer(field.Fertilizer_id)">Delete</button></td>
+        </tr>
+    </table>
+</div>
+<ng-template #abc>
+    <div>
+        <form  [formGroup]="Fertilizer" novalidate>
+            <mat-form-field appearance="fill">
+                <mat-label>fertilizer id</mat-label>
+                <input matInput  type="number" formControlName="fertilizer_id">
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill">
+                <mat-label>farmer_id</mat-label>
+                <input matInput  type="number" formControlName="farmer_id">
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill">
+                <mat-label>pesticide id</mat-label>
+                <input matInput  type="number" formControlName="pesticide_id">
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill">
+                <mat-label>seed id</mat-label>
+                <input matInput  type="number" formControlName="seed_id">
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill">
+                <mat-label>fertilizer name</mat-label>
+                <input matInput  type="text" formControlName="fertilizer_name">
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill">
+                <mat-label>fertilizer rate</mat-label>
+                <input matInput  type="number" formControlName="fertilizer_rate">
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill">
+                <mat-label>fertilizer quantity</mat-label>
+                <input matInput  type="text" formControlName="fertilizer_quantity">
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill">
+                <mat-label>crop id</mat-label>
+                <input matInput  type="number" formControlName="crop_id">
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill">
+                <mat-label>company</mat-label>
+                <input matInput  type="text" formControlName="company_name">
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill">
+                <mat-label>formulation</mat-label>
+                <input matInput  type="text" formControlName="formulation">
+            </mat-form-field>
+            <br>
+            <div *ngIf="buttonClicked=='add'; else xyz">
+                <button mat-raised-button type="submit" (click)="addFertilizer()">Add</button>
+            </div>
+            <ng-template #xyz>
+                <button mat-raised-button (click)="updateFertilizer()">update</button>
+            </ng-template>
+            
+        </form>
+    </div>
+</ng-template>
+

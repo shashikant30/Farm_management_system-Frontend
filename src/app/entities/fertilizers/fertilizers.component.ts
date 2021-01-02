@@ -10,6 +10,7 @@ import { fertilizers } from '../../content/fields';
 export class FertilizersComponent implements OnInit {
   lstfields:fertilizers[];
   x=localStorage.getItem("sessionId");
+  buttonClicked:string="none";
   constructor(private service:ContentServiceService, private fb: FormBuilder) { }
 
   Fertilizer = this.fb.group({
@@ -29,19 +30,49 @@ export class FertilizersComponent implements OnInit {
     this.service.getFertilizersInfo(this.x)
     .subscribe(response=>{
       this.lstfields = response;
-      this.Fertilizer.patchValue({
-        fertilizer_id: response[0].Fertilizer_id,
-        farmer_id: response[0].F_id,
-        pesticide_id: response[0].Pesticide_id,
-        seed_id: response[0].Seed_id,
-        fertilizer_name: response[0].Fertilizer_name,
-        fertilizer_rate: response[0].Fertilizer_rate,
-        fertilizer_quantity: response[0].Fertilizer_quantity,
-        crop_id: response[0].Crop_id,
-        company_name: response[0].Company_name,
-        formulation: response[0].Formulation
-      });
     });
+  }
+
+  add():void{
+    this.buttonClicked="add";
+    this.Fertilizer.reset({});
+  }
+  addFertilizer(): void{
+    
+  }
+
+
+  loadData(x): void {
+    this.buttonClicked="update";
+    this.lstfields.forEach(element => {
+      if(x==element.Fertilizer_id){
+        this.Fertilizer.patchValue({
+          fertilizer_id: element.Fertilizer_id,
+          farmer_id: element.F_id,
+          pesticide_id: element.Pesticide_id,
+          seed_id: element.Seed_id,
+          fertilizer_name: element.Fertilizer_name,
+          fertilizer_rate: element.Fertilizer_rate,
+          fertilizer_quantity: element.Fertilizer_quantity,
+          crop_id: element.Crop_id,
+          company_name: element.Company_name,
+          formulation: element.Formulation
+        });
+      }      
+    });
+  }
+  updateFertilizer(): void{
+    
+  }
+
+
+  deleteFertilizer(x): void{
+    
+  }
+
+  back():void{
+    this.ngOnInit;
+    this.buttonClicked="none";
   }
 
 }

@@ -10,6 +10,7 @@ import { warehouse } from '../../content/fields';
 export class WarehouseComponent implements OnInit {
   lstfields:warehouse[];
   x=localStorage.getItem("sessionId");
+  buttonClicked:string="none";
   constructor(private service:ContentServiceService, private fb: FormBuilder) { }
 
   Warehouse = this.fb.group({
@@ -25,15 +26,46 @@ export class WarehouseComponent implements OnInit {
     this.service.getWarehouseInfo(this.x)
     .subscribe(response=>{
       this.lstfields = response;
-      this.Warehouse.patchValue({
-        crop_id: response[0].Crop_id,
-        warehouse_id: response[0].Warehouse_id,
-        crop_name: response[0].Crop_name,
-        crop_stored_quantity: response[0].Crop_stored_quantity,
-        total_capacity: response[0].Total_capacity,
-        farmer_id: response[0].F_id
-    });
+      
       });
+  }
+
+  add():void{
+    this.buttonClicked="add";
+    this.Warehouse.reset({});
+  }
+  addWarehouse(): void{
+    
+  }
+
+
+  loadData(x): void {
+    this.buttonClicked="update";
+    this.lstfields.forEach(element => {
+      if(x==element.Warehouse_id){
+        this.Warehouse.patchValue({
+          crop_id: element.Crop_id,
+          warehouse_id: element.Warehouse_id,
+          crop_name: element.Crop_name,
+          crop_stored_quantity: element.Crop_stored_quantity,
+          total_capacity: element.Total_capacity,
+          farmer_id: element.F_id
+        });
+      }      
+    });
+  }
+  updateWarehouse(): void{
+    
+  }
+
+
+  deleteWarehouse(x): void{
+    
+  }
+
+  back():void{
+    this.ngOnInit;
+    this.buttonClicked="none";
   }
 
 }

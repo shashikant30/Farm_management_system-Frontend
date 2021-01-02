@@ -10,6 +10,7 @@ import { seeds } from '../../content/fields';
 export class SeedsComponent implements OnInit {
   lstfields:seeds[];
   x=localStorage.getItem("sessionId");
+  buttonClicked:string="none";
   constructor(private service:ContentServiceService, private fb: FormBuilder) { }
   Seed = this.fb.group({
     seed_id: [''],
@@ -40,6 +41,48 @@ export class SeedsComponent implements OnInit {
         company_name: response[0].Company_name,
       });
     });
+  }
+
+  add():void{
+    this.buttonClicked="add";
+    this.Seed.reset({});
+  }
+  addSeed(): void{
+    
+  }
+
+
+  loadData(x): void {
+    this.buttonClicked="update";
+    this.lstfields.forEach(element => {
+      if(x==element.Seed_id){
+        this.Seed.patchValue({
+          seed_id: element.Seed_id,
+          farmer_id: element.F_id,
+          pesticide_id: element.Pesticide_id,
+          fertilizer_id: element.Fertilizer_id,
+          seed_name: element.Seed_name,
+          seed_type: element.Seed_type,
+          seed_category: element.Seed_category,
+          seed_rate: element.Seed_rate,
+          seed_quantity: element.Seed_quantity,
+          company_name: element.Company_name,
+        });
+      }      
+    });
+  }
+  updateSeed(): void{
+    
+  }
+
+
+  deleteSeed(x): void{
+    
+  }
+
+  back():void{
+    this.ngOnInit;
+    this.buttonClicked="none";
   }
 
 }
