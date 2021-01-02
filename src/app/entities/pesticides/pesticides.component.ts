@@ -42,10 +42,10 @@ export class PesticidesComponent implements OnInit {
   }
 
 
-  loadData(x): void {
+  loadData(y): void {
     this.buttonClicked="update";
     this.lstfields.forEach(element => {
-      if(x==element.Pesticide_id){
+      if(y==element.Pesticide_id){
         this.Pesticide.patchValue({
           pesticide_id: element.Pesticide_id,
           farmer_id: element.F_id,

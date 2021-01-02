@@ -45,10 +45,10 @@ export class MarketComponent implements OnInit {
   }
 
 
-  loadData(x): void {
+  loadData(y): void {
     this.buttonClicked="update";
     this.lstfields.forEach(element => {
-      if(x==element.Crop_market_id){
+      if(y==element.Crop_market_id){
         this.Market.patchValue({
           crop_market_id: element.Crop_market_id,
           farmer_id: element.F_id,

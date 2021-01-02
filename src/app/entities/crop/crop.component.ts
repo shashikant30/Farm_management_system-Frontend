@@ -41,10 +41,10 @@ export class CropComponent implements OnInit {
   }
 
 
-  loadData(x): void {
+  loadData(y): void {
     this.buttonClicked="update";
     this.lstfields.forEach(element => {
-      if(x==element.Crop_id){
+      if(y==element.Crop_id){
         this.Crop.patchValue({
           crop_id: element.Crop_id,
           farmer_id: element.F_id,
@@ -64,7 +64,7 @@ export class CropComponent implements OnInit {
   }
 
 
-  deleteFarm(x): void{
+  deleteFarm(y): void{
     /*this.service.deleteFarm(x).subscribe(response=>{
       console.log(response);
     });

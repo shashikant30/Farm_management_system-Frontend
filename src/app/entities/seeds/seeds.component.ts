@@ -28,18 +28,7 @@ export class SeedsComponent implements OnInit {
     this.service.getSeedsInfo(this.x)
     .subscribe(response=>{
       this.lstfields = response;
-      this.Seed.patchValue({
-        seed_id: response[0].Seed_id,
-        farmer_id: response[0].F_id,
-        pesticide_id: response[0].Pesticide_id,
-        fertilizer_id: response[0].Fertilizer_id,
-        seed_name: response[0].Seed_name,
-        seed_type: response[0].Seed_type,
-        seed_category: response[0].Seed_category,
-        seed_rate: response[0].Seed_rate,
-        seed_quantity: response[0].Seed_quantity,
-        company_name: response[0].Company_name,
-      });
+    
     });
   }
 
@@ -52,10 +41,10 @@ export class SeedsComponent implements OnInit {
   }
 
 
-  loadData(x): void {
+  loadData(y): void {
     this.buttonClicked="update";
     this.lstfields.forEach(element => {
-      if(x==element.Seed_id){
+      if(y==element.Seed_id){
         this.Seed.patchValue({
           seed_id: element.Seed_id,
           farmer_id: element.F_id,

@@ -46,10 +46,10 @@ export class LaboursComponent implements OnInit {
   }
 
 
-  loadData(x): void {
+  loadData(y): void {
     this.buttonClicked="update";
     this.lstfields.forEach(element => {
-      if(x==element.L_id){
+      if(y==element.L_id){
         this.Labour.patchValue({
           labour_id: element.L_id,
           farmer_id: element.F_id,

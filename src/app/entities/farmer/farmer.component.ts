@@ -11,6 +11,7 @@ import { fields, login } from '../../content/fields';
 export class FarmerComponent implements OnInit {
   lstfields:fields[];
   public x=parseInt(localStorage.getItem("sessionId"), 10);
+  buttonClicked:string="none";
 
   constructor(private service: ContentServiceService, private user: UserComponent,private fb: FormBuilder) { }
 
@@ -30,19 +31,37 @@ export class FarmerComponent implements OnInit {
     this.service.getFarmerProfile(this.x)
     .subscribe(response=>{
       this.lstfields = response;
-      this.updatefarmer.patchValue({
-        farmer_id: response[0].F_id,
-        farmer_fname: response[0].F_fname,
-        farmer_mname: response[0].F_mname,
-        farmer_lname: response[0].F_lname,
-        farmer_address: response[0].F_address,
-        phone: response[0].F_phoneNo,
-        telephone: response[0].F_telephoneNo,
-        city: response[0].F_city,
-        password:response[0].F_password
-      });
+      
       });
   //  console.log(this.user.sessionId);
   }
+
+  loadData(): void {
+    this.buttonClicked="update";
+    this.lstfields.forEach(element => {
+      if(this.x==element.F_id){
+        this.updatefarmer.patchValue({
+          farmer_id: element.F_id,
+          farmer_fname: element.F_fname,
+          farmer_mname: element.F_mname,
+          farmer_lname: element.F_lname,
+          farmer_address: element.F_address,
+          phone: element.F_phoneNo,
+          telephone: element.F_telephoneNo,
+          city: element.F_city,
+          password:element.F_password
+        });
+      }      
+    });
+  }
+  updateFarmer(): void{
+    
+  }
+
+  back():void{
+    this.ngOnInit;
+    this.buttonClicked="none";
+  }
+
 
 }

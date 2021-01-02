@@ -39,10 +39,10 @@ export class WarehouseComponent implements OnInit {
   }
 
 
-  loadData(x): void {
+  loadData(y): void {
     this.buttonClicked="update";
     this.lstfields.forEach(element => {
-      if(x==element.Warehouse_id){
+      if(y==element.Warehouse_id){
         this.Warehouse.patchValue({
           crop_id: element.Crop_id,
           warehouse_id: element.Warehouse_id,

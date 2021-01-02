@@ -1,80 +1,86 @@
-&nbsp;<button mat-stroked-button color="primary">Update</button>
-<table>
-    <tr>
-        <th>id</th>
-        <th>first name</th>
-        <th>middle name</th>
-        <th>last name</th>
-        <th>address</th>
-        <th>phone No</th>
-        <th>telephone no</th>
-        <th>gender</th>
-        <th>city</th>
-        <th>password</th>
-
-    </tr>
-    <tr *ngFor="let field of lstfields">
-        <td>{{field.F_id}}</td>
-        <td>{{field.F_fname}}</td>
-        <td>{{field.F_mname}}</td>
-        <td>{{field.F_lname}}</td>
-        <td>{{field.F_address}}</td>
-        <td>{{field.F_phoneNo}}</td>
-        <td>{{field.F_telephoneNo}}</td>
-        <td>{{field.F_gender}}</td>
-        <td>{{field.F_city}}</td>
-        <td>{{field.F_password}}</td>
-        
-    </tr>
-
-</table>
-<div>
-    <form  [formGroup]="updatefarmer" novalidate>
-        <mat-form-field appearance="fill">
-            <mat-label>Enter farmer_id</mat-label>
-            <input matInput  type="number" formControlName="farmer_id">
-        </mat-form-field>
-        <br>
-        <mat-form-field appearance="fill">
-            <mat-label>First name</mat-label>
-            <input matInput  type="text" formControlName="farmer_fname">
-        </mat-form-field>
-        <br>
-        <mat-form-field appearance="fill">
-            <mat-label>Middle name</mat-label>
-            <input matInput  type="text" formControlName="farmer_mname">
-        </mat-form-field>
-        <br>
-        <mat-form-field appearance="fill">
-            <mat-label>last name</mat-label>
-            <input matInput  type="text" formControlName="farmer_lname">
-        </mat-form-field>
-        <br>
-        <mat-form-field appearance="fill">
-            <mat-label>Address</mat-label>
-            <input matInput  type="text" formControlName="farmer_address">
-        </mat-form-field>
-        <br>
-        <mat-form-field appearance="fill">
-            <mat-label>Phone no</mat-label>
-            <input matInput  type="number" formControlName="phone">
-        </mat-form-field>
-        <br>
-        <mat-form-field appearance="fill">
-            <mat-label>Telephone No</mat-label>
-            <input matInput  type="number" formControlName="telephone">
-        </mat-form-field>
-        <br>
-        <mat-form-field appearance="fill">
-            <mat-label>City</mat-label>
-            <input matInput  type="text" formControlName="city">
-        </mat-form-field>
-        <br>
-        <mat-form-field appearance="fill">
-            <mat-label>Password</mat-label>
-            <input matInput  type="password" formControlName="password">
-        </mat-form-field>
-        <br>
-        <button mat-raised-button >update</button>
-    </form>
+&nbsp;<button mat-stroked-button color="primary" (click)="loadData()">update profile</button>&nbsp;
+<br> <br>
+<div *ngIf="buttonClicked!='none'">
+    &nbsp;<button mat-raised-button (click)="back()">back</button>
 </div>
+<div *ngIf="buttonClicked=='none'; else abc" >
+    <table>
+        <tr>
+            <th>id</th>
+            <th>first name</th>
+            <th>middle name</th>
+            <th>last name</th>
+            <th>address</th>
+            <th>phone No</th>
+            <th>telephone no</th>
+            <th>gender</th>
+            <th>city</th>
+            <th>password</th>
+    
+        </tr>
+        <tr *ngFor="let field of lstfields">
+            <td>{{field.F_id}}</td>
+            <td>{{field.F_fname}}</td>
+            <td>{{field.F_mname}}</td>
+            <td>{{field.F_lname}}</td>
+            <td>{{field.F_address}}</td>
+            <td>{{field.F_phoneNo}}</td>
+            <td>{{field.F_telephoneNo}}</td>
+            <td>{{field.F_gender}}</td>
+            <td>{{field.F_city}}</td>
+            <td>{{field.F_password}}</td>
+        </tr>
+    </table> 
+</div>
+<ng-template #abc>
+    <div>
+        <form  [formGroup]="updatefarmer" novalidate>
+            <mat-form-field appearance="fill">
+                <mat-label>Enter farmer_id</mat-label>
+                <input matInput  type="number" formControlName="farmer_id">
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill">
+                <mat-label>First name</mat-label>
+                <input matInput  type="text" formControlName="farmer_fname">
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill">
+                <mat-label>Middle name</mat-label>
+                <input matInput  type="text" formControlName="farmer_mname">
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill">
+                <mat-label>last name</mat-label>
+                <input matInput  type="text" formControlName="farmer_lname">
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill">
+                <mat-label>Address</mat-label>
+                <input matInput  type="text" formControlName="farmer_address">
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill">
+                <mat-label>Phone no</mat-label>
+                <input matInput  type="number" formControlName="phone">
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill">
+                <mat-label>Telephone No</mat-label>
+                <input matInput  type="number" formControlName="telephone">
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill">
+                <mat-label>City</mat-label>
+                <input matInput  type="text" formControlName="city">
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill">
+                <mat-label>Password</mat-label>
+                <input matInput  type="password" formControlName="password">
+            </mat-form-field>
+            <br>
+            <button mat-raised-button (click)="updateFarmer()">update</button>
+        </form>
+    </div>
+</ng-template>

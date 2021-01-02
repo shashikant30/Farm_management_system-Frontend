@@ -42,10 +42,10 @@ export class FarmComponent implements OnInit {
   }
 
 
-  loadData(x): void {
+  loadData(y): void {
     this.buttonClicked="update";
     this.lstfields.forEach(element => {
-      if(x==element.Farm_id){
+      if(y==element.Farm_id){
         this.update1.patchValue({
           farm_id: element.Farm_id,
           farmer_id: element.F_id,
