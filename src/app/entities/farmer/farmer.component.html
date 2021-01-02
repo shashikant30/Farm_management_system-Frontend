@@ -29,7 +29,7 @@
 
 </table>
 <div>
-    <form (ngSubmit)="updateFarmer()" [formGroup]="updatefarmer" novalidate>
+    <form  [formGroup]="updatefarmer" novalidate>
         <mat-form-field appearance="fill">
             <mat-label>Enter farmer_id</mat-label>
             <input matInput  type="number" formControlName="farmer_id">
@@ -75,6 +75,6 @@
             <input matInput  type="password" formControlName="password">
         </mat-form-field>
         <br>
-        <button mat-raised-button (click)="updateFarm()">update</button>
+        <button mat-raised-button >update</button>
     </form>
 </div>

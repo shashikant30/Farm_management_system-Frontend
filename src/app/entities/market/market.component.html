@@ -32,7 +32,7 @@
     </tr>
 </table>
 <div>
-    <form (ngSubmit)="addMarket()" [formGroup]="Market" novalidate>
+    <form  [formGroup]="Market" novalidate>
         <mat-form-field appearance="fill">
             <mat-label>Market Id</mat-label>
             <input matInput  type="number" formControlName="crop_market_id">
@@ -94,6 +94,6 @@
         </mat-form-field>
         <br>
         <button mat-raised-button type="submit">Add</button>
-        <button mat-raised-button (click)="updateFarm()">update</button>
+        <button mat-raised-button >update</button>
     </form>
 </div>

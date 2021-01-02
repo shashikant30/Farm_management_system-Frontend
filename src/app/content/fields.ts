@@ -18,7 +18,7 @@ export class farm {
     public F_id: number;
     public Farm_area: string;
     public Farm_location: string;
-    public Farm_irrigation_src: string;
+    public Farm_irrigation_source: string;
 }
 export class crop {
     public Crop_id: number;

@@ -12,6 +12,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import { MatTableModule } from '@angular/material/table';
 import { AdminComponent } from './admin/admin.component';
 import { UserSignUpComponent } from './user-sign-up/user-sign-up.component';
 import { ContentComponent } from './content/content.component';
@@ -53,6 +54,7 @@ import { SeedsComponent } from './entities/seeds/seeds.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatTabsModule,
+    MatTableModule,
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,

@@ -33,7 +33,7 @@
         <td>{{field.CropId}}</td>
     </tr>
 </table><div>
-    <form (ngSubmit)="addLabour()" [formGroup]="Labour" novalidate>
+    <form  [formGroup]="Labour" novalidate>
         <mat-form-field appearance="fill">
             <mat-label>labour id</mat-label>
             <input matInput  type="number" formControlName="labour_id">
@@ -100,6 +100,6 @@
         </mat-form-field>
         <br>
         <button mat-raised-button type="submit">Add</button>
-        <button mat-raised-button (click)="updateFarm()">update</button>
+        <button mat-raised-button >update</button>
     </form>
 </div>

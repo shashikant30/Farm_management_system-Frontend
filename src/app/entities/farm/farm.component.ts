@@ -10,6 +10,7 @@ import { farm } from '../../content/fields';
 export class FarmComponent implements OnInit {
   lstfields:farm[];
   x=localStorage.getItem("sessionId");
+  buttonClicked: string="none";
   
   constructor(private service:ContentServiceService, private fb: FormBuilder) { }
 
@@ -28,7 +29,10 @@ export class FarmComponent implements OnInit {
       });
   }
 
-
+  add():void{
+    this.buttonClicked="add";
+    this.update1.reset({});
+  }
   addFarm(): void{
     this.service.addFarmInfo(this.x,this.update1.value)
     .subscribe(response=>{
@@ -37,20 +41,20 @@ export class FarmComponent implements OnInit {
   }
 
 
-  loadData(): void {
-    this.service.getFarmInfo(this.x)
-    .subscribe(response=>{
+  loadData(x): void {
+    this.buttonClicked="update";
+    this.lstfields.forEach(element => {
+      if(x==element.Farm_id){
         this.update1.patchValue({
-          farm_id: response[0].Farm_id,
-          farmer_id: response[0].F_id,
-          farm_area: response[0].Farm_area,
-          farm_location: response[0].Farm_location,
-          farm_irrigation_source: response[0].Farm_irrigation_source
+          farm_id: element.Farm_id,
+          farmer_id: element.F_id,
+          farm_area: element.Farm_area,
+          farm_location: element.Farm_location,
+          farm_irrigation_source: element.Farm_irrigation_source
         });
-      });
+      }      
+    });
   }
-
-
   updateFarm(): void{
     this.service.updateFarmInfo(this.x , this.update1.value)
     .subscribe(response=>{
@@ -64,4 +68,9 @@ export class FarmComponent implements OnInit {
       console.log('sads')
     });
   }
+
+  back():void{
+    this.buttonClicked="none";
+  }
+
 }
