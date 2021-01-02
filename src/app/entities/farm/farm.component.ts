@@ -38,6 +38,7 @@ export class FarmComponent implements OnInit {
     .subscribe(response=>{
       console.log(response);
     });
+    this.ngOnInit();
   }
 
 
@@ -59,14 +60,16 @@ export class FarmComponent implements OnInit {
     this.service.updateFarmInfo(this.x , this.update1.value)
     .subscribe(response=>{
      console.log(response);
+     this.ngOnInit();
     });
   }
 
 
-  deleteFarm(): void{
-    this.service.deleteFarm(13).subscribe(response=>{
-      console.log('sads')
+  deleteFarm(x): void{
+    this.service.deleteFarm(x).subscribe(response=>{
+      console.log(response);
     });
+    this.ngOnInit();
   }
 
   back():void{

@@ -1,6 +1,5 @@
 &nbsp;<button mat-stroked-button color="primary" (click)="add()">Add</button>&nbsp;
-<button mat-stroked-button color="primary"(click)="deleteFarm()">Delete</button>
-<br>
+<br> <br>
 <div *ngIf="buttonClicked!='none'">
     &nbsp;<button mat-raised-button (click)="back()">back</button>
 </div>
@@ -20,6 +19,8 @@
             <td>{{field.Farm_location}}</td>
             <td>{{field.Farm_irrigation_source}}</td>
             <td><button mat-raised-button (click)="loadData(field.Farm_id)">update</button></td>
+            <td><button mat-raised-button (click)="deleteFarm(field.Farm_id)">Delete</button></td>
+            
         </tr>
     </table> 
 </div>
