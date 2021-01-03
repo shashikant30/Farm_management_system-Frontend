@@ -32,12 +32,12 @@ export class CropComponent implements OnInit {
     this.buttonClicked="add";
     this.Crop.reset({});
   }
-  addFarm(): void{
-  /*  this.service.addFarmInfo(this.x,this.update1.value)
+  addCrop(): void{
+    this.service.addCrop(this.x,this.Crop.value)
     .subscribe(response=>{
       console.log(response);
     });
-    *///this.back();
+    this.back();
   }
 
 
@@ -55,20 +55,20 @@ export class CropComponent implements OnInit {
       }      
     });
   }
-  updateFarm(): void{
-   /* this.service.updateFarmInfo(this.x , this.update1.value)
+  updateCrop(): void{
+    this.service.updateCrop(this.x , this.Crop.value)
     .subscribe(response=>{
      console.log(response);
-    });*/
-    //this.back();
+    });
+    this.back();
   }
 
 
-  deleteFarm(y): void{
-    /*this.service.deleteFarm(x).subscribe(response=>{
+  deleteCrop(y): void{
+    this.service.deleteCrop(y).subscribe(response=>{
       console.log(response);
     });
-  *///  this.ngOnInit();
+    this.ngOnInit();
   }
 
   back():void{
