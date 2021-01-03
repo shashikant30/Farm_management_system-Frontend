@@ -38,7 +38,11 @@ export class PesticidesComponent implements OnInit {
     this.Pesticide.reset({});
   }
   addPesticide(): void{
-    
+    this.service.addPesticide(this.x,this.Pesticide.value)
+    .subscribe(response=>{
+      console.log(response);
+    });
+    this.back();
   }
 
 
@@ -61,12 +65,19 @@ export class PesticidesComponent implements OnInit {
     });
   }
   updatePesticide(): void{
-    
+    this.service.updatePesticide(this.x , this.Pesticide.value)
+    .subscribe(response=>{
+     console.log(response);
+    });
+    this.back();
   }
 
 
-  deletePesticide(x): void{
-    
+  deletePesticide(y): void{
+    this.service.deletePesticide(y).subscribe(response=>{
+      console.log(response);
+    });
+    this.ngOnInit();
   }
 
   back():void{

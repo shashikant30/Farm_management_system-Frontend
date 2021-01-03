@@ -38,8 +38,13 @@ export class FertilizersComponent implements OnInit {
     this.Fertilizer.reset({});
   }
   addFertilizer(): void{
-    
+    this.service.addFertilizer(this.x,this.Fertilizer.value)
+    .subscribe(response=>{
+      console.log(response);
+    });
+    this.back();
   }
+  
 
 
   loadData(y): void {
@@ -62,12 +67,19 @@ export class FertilizersComponent implements OnInit {
     });
   }
   updateFertilizer(): void{
-    
+    this.service.updateFertilizer(this.x , this.Fertilizer.value)
+    .subscribe(response=>{
+     console.log(response);
+    });
+    this.back();
   }
 
 
-  deleteFertilizer(x): void{
-    
+  deleteFertilizer(y): void{
+    this.service.deleteFertilizer(y).subscribe(response=>{
+      console.log(response);
+    });
+    this.ngOnInit();
   }
 
   back():void{

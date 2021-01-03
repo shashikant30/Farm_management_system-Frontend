@@ -42,7 +42,11 @@ export class LaboursComponent implements OnInit {
     this.Labour.reset({});
   }
   addLabour(): void{
-    
+    this.service.addLabour(this.x,this.Labour.value)
+    .subscribe(response=>{
+      console.log(response);
+    });
+    this.back();
   }
 
 
@@ -69,12 +73,20 @@ export class LaboursComponent implements OnInit {
     });
   }
   updateLabour(): void{
-    
+    this.service.updateLabour(this.x , this.Labour.value)
+    .subscribe(response=>{
+     console.log(response);
+    });
+    this.back();
   }
+  
 
 
-  deleteLabour(x): void{
-    
+  deleteLabour(y): void{
+    this.service.deleteLabour(y).subscribe(response=>{
+      console.log(response);
+    });
+    this.ngOnInit();
   }
 
   back():void{

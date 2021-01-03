@@ -35,8 +35,13 @@ export class WarehouseComponent implements OnInit {
     this.Warehouse.reset({});
   }
   addWarehouse(): void{
-    
+    this.service.addWarehouse(this.x,this.Warehouse.value)
+    .subscribe(response=>{
+      console.log(response);
+    });
+    this.back();
   }
+  
 
 
   loadData(y): void {
@@ -55,12 +60,20 @@ export class WarehouseComponent implements OnInit {
     });
   }
   updateWarehouse(): void{
-    
+    this.service.updateWarehouse(this.x , this.Warehouse.value)
+    .subscribe(response=>{
+     console.log(response);
+    });
+    this.back();
   }
+  
 
 
-  deleteWarehouse(x): void{
-    
+  deleteWarehouse(y): void{
+    this.service.deleteWarehouse(y).subscribe(response=>{
+      console.log(response);
+    });
+    this.ngOnInit();
   }
 
   back():void{

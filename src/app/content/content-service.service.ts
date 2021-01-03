@@ -63,69 +63,69 @@ export class ContentServiceService {
   }
   
 
-  addMarket(){
-    return this.http.post(`http://localhost:3000/cropmarket/add/:crop_market_id/:crop_id/:crop_category/:market_name/:market_district/:market_unit/:crop_quantity/:crop_price/:date_of_sold/:crop_name/:warehouse_id/:farmer_id`, );
+  addMarket(farmer_id, Market){
+    return this.http.post(`http://localhost:3000/cropmarket/add/${Market.crop_market_id}/${Market.crop_id}/${Market.crop_category}/${Market.market_name}/${Market.market_district}/${Market.market_unit}/${Market.crop_quantity}/${Market.crop_price}/${Market.date_of_sold}/${Market.crop_name}/${Market.warehouse_id}/${farmer_id}`, "add market entry");
   }
-  updateMarket(){
-    return this.http.post(`http://localhost:3000/cropmarket/update/:crop_market_id/:crop_id/:crop_category/:market_name/:market_district/:market_unit/:crop_quantity/:crop_price/:date_of_sold/:crop_name/:farmer_id`, );
+  updateMarket(farmer_id, Market){
+    return this.http.post(`http://localhost:3000/cropmarket/update/${Market.crop_market_id}/${Market.crop_id}/${Market.crop_category}/${Market.market_name}/${Market.market_district}/${Market.market_unit}/${Market.crop_quantity}/${Market.crop_price}/${Market.date_of_sold}/${Market.crop_name}/${farmer_id}`, "update market entry");
   }
-  deleteMarket(){
-    return this.http.delete(`http://localhost:3000/cropmarket/delete/:crop_market_id`, );
-  }
-  
-
-  addLabour(){
-    return this.http.post(`http://localhost:3000/labours/add/:labour_id/:l_fname/:l_mname/:l_lname/:l_address/:l_phone/:l_telephone/:work/:working_hours/:salary/:l_city/:crop_id/:farmer_id`, );
-  }
-  updateLabour(){
-    return this.http.post(`http://localhost:3000/labours/update/:labour_id/:l_fname/:l_mname/:l_lname/:l_address/:l_phone/:l_telephone/:work/:working_hours/:salary/:l_city/:crop_id/:farmer_id`, );
-  }
-  deleteLabour(){
-    return this.http.delete(`http://localhost:3000/labours/delete/:labour_id`, );
+  deleteMarket(crop_market_id){
+    return this.http.delete(`http://localhost:3000/cropmarket/delete/${crop_market_id}`);
   }
   
 
-  addWarehouse(){
-    return this.http.post(`http://localhost:3000/warehouse/add/:warehouse_id/:crop_name/:crop_stored_quantity/:total_capacity/:crop_id`, );
+  addLabour(farmer_id, Labour){
+    return this.http.post(`http://localhost:3000/labours/add/${Labour.labour_id}/${Labour.l_fname}/${Labour.l_mname}/${Labour.l_lname}/${Labour.l_address}/${Labour.l_phoneno}/${Labour.l_telephoneno}/${Labour.work}/${Labour.working_hours}/${Labour.salary}/${Labour.l_city}/${Labour.crop_id}/${farmer_id}`, "add Labour entry");
   }
-  updateWarehouse(){
-    return this.http.post(`http://localhost:3000/warehouse/update/:warehouse_id/:crop_name/:crop_stored_quantity/:total_capacity/:crop_id`, );
+  updateLabour(farmer_id, Labour){
+    return this.http.post(`http://localhost:3000/labours/update/${Labour.labour_id}/${Labour.l_fname}/${Labour.l_mname}/${Labour.l_lname}/${Labour.l_address}/${Labour.l_phoneno}/${Labour.l_telephoneno}/${Labour.work}/${Labour.working_hours}/${Labour.salary}/${Labour.l_city}/${Labour.crop_id}/${farmer_id}`, "update Labour entry");
   }
-  deleteWarehouse(){
-    return this.http.delete(`http://localhost:3000/warehouse/delete/:warehouse_id`, );
+  deleteLabour(labour_id){
+    return this.http.delete(`http://localhost:3000/labours/delete/${labour_id}`);
+  }
+  
+
+  addWarehouse(farmer_id, Warehouse){
+    return this.http.post(`http://localhost:3000/warehouse/add/${Warehouse.warehouse_id}/${Warehouse.crop_name}/${Warehouse.crop_stored_quantity}/${Warehouse.total_capacity}/${Warehouse.crop_id}`, "add warehouse entry");
+  }
+  updateWarehouse(farmer_id, Warehouse){
+    return this.http.post(`http://localhost:3000/warehouse/update/${Warehouse.warehouse_id}/${Warehouse.crop_name}/${Warehouse.crop_stored_quantity}/${Warehouse.total_capacity}/${Warehouse.crop_id}`, "update warehouse entry");
+  }
+  deleteWarehouse(warehouse_id){
+    return this.http.delete(`http://localhost:3000/warehouse/delete/${warehouse_id}`);
   }
     
 
-  addPesticide(){
-    return this.http.post(`http://localhost:3000/pesticides/add/:pesticide_id/:pesticide_name/:pesticide_rate/:pesticide_quantity/:company_name/:formulation/:fertilizer_id/:seed_id/:farmer_id`, );
+  addPesticide(farmer_id, Pesticide){
+    return this.http.post(`http://localhost:3000/pesticides/add/${Pesticide.pesticide_id}/${Pesticide.pesticide_name}/${Pesticide.pesticide_rate}/${Pesticide.pesticide_quantity}/${Pesticide.company_name}/${Pesticide.formulation}/${Pesticide.fertilizer_id}/${Pesticide.seed_id}/${farmer_id}`, "add pesticide entry");
   }
-  updatePesticide(){
-    return this.http.post(`http://localhost:3000/pesticides/update/:pesticide_id/:pesticide_name/:pesticide_rate/:pesticide_quantity/:company_name/:formulation/:fertilizer_id/:seed_id/:farmer_id`, );
+  updatePesticide(farmer_id, Pesticide){
+    return this.http.post(`http://localhost:3000/pesticides/update/${Pesticide.pesticide_id}/${Pesticide.pesticide_name}/${Pesticide.pesticide_rate}/${Pesticide.pesticide_quantity}/${Pesticide.company_name}/${Pesticide.formulation}/${Pesticide.fertilizer_id}/${Pesticide.seed_id}/${farmer_id}`, "update pesticide entry");
   }
-  deletePesticide(){
-    return this.http.delete(`http://localhost:3000/pesticides/delete/:pesticide_id`, );
-  }
-  
-
-  addFertilizer(){
-    return this.http.post(`http://localhost:3000/fertilizers/add/:pesticide_id/:fertilizer_name/:fertilizer_rate/:fertilizer_quantity/:crop_id/:company_name/:formulation/:fertilizer_id/:seed_id/:farmer_id`, );
-  }
-  updateFertilizer(){
-    return this.http.post(`http://localhost:3000/fertilizers/update/:pesticide_id/:fertilizer_name/:fertilizer_rate/:fertilizer_quantity/:crop_id/:company_name/:formulation/:fertilizer_id/:seed_id/:farmer_id`, );
-  }
-  deleteFertilizer(){
-    return this.http.delete(`http://localhost:3000/fertilizers/delete/:fertilizer_id`, );
+  deletePesticide(pesticide_id){
+    return this.http.delete(`http://localhost:3000/pesticides/delete/${pesticide_id}`);
   }
   
 
-  addSeed(){
-    return this.http.post(`http://localhost:3000/seeds/add/:seed_id/:seed_name/:seed_type/:seed_category/:seed_rate/:seed_quantity/:company_name/:pesticide_id/:fertilizer_id/:farmer_id`, );
+  addFertilizer(farmer_id, Fertilizer){
+    return this.http.post(`http://localhost:3000/fertilizers/add/${Fertilizer.pesticide_id}/${Fertilizer.fertilizer_name}/${Fertilizer.fertilizer_rate}/${Fertilizer.fertilizer_quantity}/${Fertilizer.crop_id}/${Fertilizer.company_name}/${Fertilizer.formulation}/${Fertilizer.fertilizer_id}/${Fertilizer.seed_id}/${farmer_id}`, "add fertilizer entry");
   }
-  updateSeed(){
-    return this.http.post(`http://localhost:3000/seeds/update/:seed_id/:seed_name/:seed_type/:seed_category/:seed_rate/:seed_quantity/:company_name/:pesticide_id/:fertilizer_id/:farmer_id`, );
+  updateFertilizer(farmer_id, Fertilizer){
+    return this.http.post(`http://localhost:3000/fertilizers/update/${Fertilizer.pesticide_id}/${Fertilizer.fertilizer_name}/${Fertilizer.fertilizer_rate}/${Fertilizer.fertilizer_quantity}/${Fertilizer.crop_id}/${Fertilizer.company_name}/${Fertilizer.formulation}/${Fertilizer.fertilizer_id}/${Fertilizer.seed_id}/${farmer_id}`, "update fertilizer entry");
   }
-  deleteSeed(){
-    return this.http.delete(`http://localhost:3000/seeds/delete/:Seed_id`);
+  deleteFertilizer(fertilizer_id){
+    return this.http.delete(`http://localhost:3000/fertilizers/delete/${fertilizer_id}`);
+  }
+  
+
+  addSeed(farmer_id, Seed){
+    return this.http.post(`http://localhost:3000/seeds/add/${Seed.seed_id}/${Seed.seed_name}/${Seed.seed_type}/${Seed.seed_category}/${Seed.seed_rate}/${Seed.seed_quantity}/${Seed.company_name}/${Seed.pesticide_id}/${Seed.fertilizer_id}/${farmer_id}`, "add seed entry");
+  }
+  updateSeed(farmer_id, Seed){
+    return this.http.post(`http://localhost:3000/seeds/update/${Seed.seed_id}/${Seed.seed_name}/${Seed.seed_type}/${Seed.seed_category}/${Seed.seed_rate}/${Seed.seed_quantity}/${Seed.company_name}/${Seed.pesticide_id}/${Seed.fertilizer_id}/${farmer_id}`, "update seed entry");
+  }
+  deleteSeed(seed_id){
+    return this.http.delete(`http://localhost:3000/seeds/delete/${seed_id}`);
   }
 
 

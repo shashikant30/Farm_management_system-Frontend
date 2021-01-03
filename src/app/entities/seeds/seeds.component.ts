@@ -37,8 +37,13 @@ export class SeedsComponent implements OnInit {
     this.Seed.reset({});
   }
   addSeed(): void{
-    
+    this.service.addSeed(this.x,this.Seed.value)
+    .subscribe(response=>{
+      console.log(response);
+    });
+    this.back();
   }
+
 
 
   loadData(y): void {
@@ -61,12 +66,19 @@ export class SeedsComponent implements OnInit {
     });
   }
   updateSeed(): void{
-    
+    this.service.updateSeed(this.x , this.Seed.value)
+    .subscribe(response=>{
+     console.log(response);
+    });
+    this.back();
   }
 
 
-  deleteSeed(x): void{
-    
+  deleteSeed(y): void{
+    this.service.deleteSeed(y).subscribe(response=>{
+      console.log(response);
+    });
+    this.ngOnInit();
   }
 
   back():void{

@@ -41,6 +41,11 @@ export class MarketComponent implements OnInit {
     this.Market.reset({});
   }
   addMarket(): void{
+    this.service.addMarket(this.x,this.Market.value)
+    .subscribe(response=>{
+      console.log(response);
+    });
+    this.back();
     
   }
 
@@ -67,12 +72,19 @@ export class MarketComponent implements OnInit {
     });
   }
   updateMarket(): void{
-    
+    this.service.updateMarket(this.x , this.Market.value)
+    .subscribe(response=>{
+     console.log(response);
+    });
+    this.back();
   }
 
 
-  deleteMarket(x): void{
-    
+  deleteMarket(y): void{
+    this.service.deleteMarket(y).subscribe(response=>{
+      console.log(response);
+    });
+    this.ngOnInit();
   }
 
   back():void{
