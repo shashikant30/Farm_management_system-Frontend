@@ -1,1 +1,6 @@
-<p>overview works!</p>
+<div *ngIf="lstfields[0].profit!=0; else loss">
+    <h1>profit={{lstfields[0].profit}}</h1>
+</div>
+<ng-template #loss>
+    <h1>loss={{lstfields[0].loss}}</h1>
+</ng-template>

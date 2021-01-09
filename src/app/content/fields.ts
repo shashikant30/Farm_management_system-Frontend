@@ -100,3 +100,9 @@ export class seeds {
     public Seed_quantity: number;
     public Company_name: string;
 }
+
+export class profitLoss {
+    public F_id: number;
+    public profit: number;
+    public loss: number;
+}
