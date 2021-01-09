@@ -50,7 +50,11 @@ export class ContentComponent implements OnInit {
           label: 'Seeds',
           link: 'seeds',
           index: 8 
-      },  
+      },  {
+          label: 'Overview',
+          link: 'overview',
+          index: 9
+      }
     ];
   }
 
