@@ -28,7 +28,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { PesticidesComponent } from './entities/pesticides/pesticides.component';
 import { FertilizersComponent } from './entities/fertilizers/fertilizers.component';
-import { SeedsComponent } from './entities/seeds/seeds.component'; 
+import { SeedsComponent } from './entities/seeds/seeds.component';
+import { OverviewComponent } from './entities/overview/overview.component'; 
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import { SeedsComponent } from './entities/seeds/seeds.component';
     WarehouseComponent,
     PesticidesComponent,
     FertilizersComponent,
-    SeedsComponent
+    SeedsComponent,
+    OverviewComponent
   ],
   imports: [
     BrowserModule,

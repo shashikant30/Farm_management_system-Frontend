@@ -29,7 +29,6 @@ export class PesticidesComponent implements OnInit {
     this.service.getPesticidesInfo(this.x)
     .subscribe(response=>{
       this.lstfields = response;
-      
     });
   }
 
