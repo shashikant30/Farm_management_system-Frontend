@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 import { ContentServiceService } from 'src/app/content/content-service.service';
 import { profitLoss } from '../../content/fields';
 @Component({
@@ -10,10 +11,18 @@ export class OverviewComponent implements OnInit {
   lstfields:profitLoss[];
   x=localStorage.getItem("sessionId");
 
-  constructor(private service: ContentServiceService) { }
+  constructor(private service: ContentServiceService,private fb: FormBuilder) { }
+
+  overview = this.fb.group({
+    crop_id: [''],
+    });
 
   ngOnInit(): void {
-    this.service.profitLoss(this.x)
+    
+  }
+
+  pl(): void{
+    this.service.profitLoss(this.x, this.overview.value.crop_id)
     .subscribe(response=>{
       this.lstfields = response;
     });

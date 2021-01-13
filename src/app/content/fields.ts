@@ -103,6 +103,12 @@ export class seeds {
 
 export class profitLoss {
     public F_id: number;
+    public Crop_id: number;
     public profit: number;
     public loss: number;
+    public f_cost: number;
+    public p_cost: number;
+    public s_cost: number;
+    public l_cost: number;
+    public f_earning: number;
 }

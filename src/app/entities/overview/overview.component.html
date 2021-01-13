@@ -1,6 +1,23 @@
+<div>
+    <form  [formGroup]="overview" novalidate>
+        <mat-form-field appearance="fill">
+            <label>Enter crop_id</label>
+            <input matInput  type="number" formControlName="crop_id">
+        </mat-form-field>
+        <br>
+            <button mat-raised-button type="submit" (click)="pl()">Search</button>
+    </form>
 <div *ngIf="lstfields[0].profit!=0; else loss">
     <h1>profit={{lstfields[0].profit}}</h1>
 </div>
 <ng-template #loss>
     <h1>loss={{lstfields[0].loss}}</h1>
 </ng-template>
+<h3>expenses</h3>
+<h4>pesticide = {{lstfields[0].p_cost}}</h4>
+<h4>fertilizer = {{lstfields[0].f_cost}}</h4>
+<h4>seed = {{lstfields[0].s_cost}}</h4>
+<h4>labour = {{lstfields[0].l_cost}}</h4>
+<h3>earnings</h3>
+<h4>sold in {{lstfields[0].f_earning}}</h4>
+</div>
