@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 import { ContentServiceService } from '../content/content-service.service';
 import { login } from '../content/fields';
 @Component({
@@ -9,16 +10,30 @@ import { login } from '../content/fields';
 })
 export class UserSignUpComponent implements OnInit {
   validCredential: boolean;
-  username = new FormControl('', [Validators.required]);
-  password = new FormControl('', [Validators.required]);
-  username1 = new FormControl('', [Validators.required]);
-  password1 = new FormControl('', [Validators.required]);
-  confirmPassword = new FormControl('', [Validators.required]);
+  
   credentials: login[];
-  constructor(private service: ContentServiceService){}
-   onSubmit(username, password){
-    this.service.login(username,password).subscribe(response=>{this.credentials=response});
-    console.log(username,password);
+  constructor(private service: ContentServiceService, private fb:FormBuilder){}
+
+  upc = this.fb.group({
+    username: [''],
+    password: [''],
+    confirmPassword: ['']  
+    });
+
+  cf = this.fb.group({
+    f_fname: [''],
+    f_mname: [''],
+    f_lname:[''],
+    f_address: [''],
+    f_phone: [''],
+    f_telephone: [''],
+    f_gender: [''],
+    f_city: ['']
+    });
+  
+
+   onSubmit(){
+    this.service.login(this.upc.value.username,this.upc.value.password).subscribe(response=>{this.credentials=response});
     if(this.credentials.length == 0){
     this.validCredential=true;
     }
@@ -26,9 +41,11 @@ export class UserSignUpComponent implements OnInit {
       this.validCredential=false;
     }
   }
-  onSubmit1(username1, password1){
-    console.log(username1,password1);
-    this.validCredential=false;
+  onSubmit1(){
+    this.service.addfarmer(this.upc.value.username,this.cf.value,this.upc.value.password).subscribe(response=>{
+      console.log(response);
+    });
+    
   }
 
   ngOnInit(): void {

@@ -17,14 +17,14 @@ export class FarmerComponent implements OnInit {
 
   updatefarmer = this.fb.group({
     farmer_id: [''],
-    farmer_fname: [''],
-    farmer_mname: [''],
-    farmer_lname:[''],
-    farmer_address: [''],
-    phone: [''],
-    telephone: [''],
-    city: [''],
-    password: ['']
+    f_fname: [''],
+    f_mname: [''],
+    f_lname:[''],
+    f_address: [''],
+    f_phone: [''],
+    f_telephone: [''],
+    f_city: [''],
+    f_password: ['']
     });
   
   ngOnInit(): void {
@@ -42,20 +42,23 @@ export class FarmerComponent implements OnInit {
       if(this.x==element.F_id){
         this.updatefarmer.patchValue({
           farmer_id: element.F_id,
-          farmer_fname: element.F_fname,
-          farmer_mname: element.F_mname,
-          farmer_lname: element.F_lname,
-          farmer_address: element.F_address,
-          phone: element.F_phoneNo,
-          telephone: element.F_telephoneNo,
-          city: element.F_city,
-          password:element.F_password
+          f_fname: element.F_fname,
+          f_mname: element.F_mname,
+          f_lname: element.F_lname,
+          f_address: element.F_address,
+          f_phone: element.F_phoneNo,
+          f_telephone: element.F_telephoneNo,
+          f_city: element.F_city,
+          f_password:element.F_password
         });
       }      
     });
   }
   updateFarmer(): void{
-    
+    this.service.updatefarmer(this.updatefarmer.value)
+    .subscribe(response=>{
+      console.log(response);
+      });
   }
 
   back():void{

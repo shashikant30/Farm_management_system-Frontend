@@ -14,6 +14,7 @@ import { PesticidesComponent } from './entities/pesticides/pesticides.component'
 import { FertilizersComponent } from './entities/fertilizers/fertilizers.component';
 import { SeedsComponent } from './entities/seeds/seeds.component';
 import { OverviewComponent } from './entities/overview/overview.component';
+import { AdminComponent } from './admin/admin.component';
 
 const routes:Routes = [
   { path: '', redirectTo: 'about', pathMatch: 'full'},
@@ -36,7 +37,7 @@ const routes:Routes = [
   { path: 'logout', redirectTo: 'about', pathMatch: 'full'},
   { path: 'user', component: UserComponent},
   { path: 'register', component: UserSignUpComponent},
-  { path: 'admin', component: UserComponent}
+  //{ path: 'admin', component: AdminComponent}
 ];
 
 @NgModule({

@@ -41,6 +41,14 @@ export class ContentServiceService {
   }
 
 
+  addfarmer(username,Farmer,password){
+    return this.http.post(`http://localhost:3000/farmer/add/${username}/${Farmer.f_fname}/${Farmer.f_mname}/${Farmer.f_lname}/${Farmer.f_address}/${Farmer.f_phone}/${Farmer.f_telephone}/${Farmer.f_gender}/${Farmer.f_city}/${password}`, "add Labour entry");
+  }
+  updatefarmer(Farmer){
+    return this.http.post(`http://localhost:3000/farmer/update/${Farmer.farmer_id}/${Farmer.f_fname}/${Farmer.f_mname}/${Farmer.f_lname}/${Farmer.f_address}/${Farmer.f_phone}/${Farmer.f_telephone}/${Farmer.f_gender}/${Farmer.f_city}/${Farmer.f_password}`, "add Labour entry");
+  }
+
+
   addFarmInfo (farmer_id, update1){
     return this.http.post<any>(`http://localhost:3000/farm_info/add/${update1.farm_id}/${update1.farmer_id}/${update1.farm_area}/${update1.farm_location}/${update1.farm_irrigation_source}`, "add data to farm entity" )
   }
