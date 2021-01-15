@@ -133,6 +133,9 @@ export class ContentServiceService {
   profitLoss(farmer_id,crop_id){
     return this.http.get<any>(`http://localhost:3000/overview/profitLoss/${farmer_id}/${crop_id}`);
   }
+  cropbalance(crop_id){
+    return this.http.get<any>(`http://localhost:3000/overview/cropbalance/${crop_id}`);
+  }
 
 
 }

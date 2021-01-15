@@ -8,16 +8,15 @@
             <button mat-raised-button type="submit" (click)="pl()">Search</button>
     </form>
 <div *ngIf="lstfields[0].profit!=0; else loss">
-    <h1>profit={{lstfields[0].profit}}</h1>
+    <h1>profit=Rs.{{lstfields[0].profit}}</h1>
 </div>
 <ng-template #loss>
-    <h1>loss={{lstfields[0].loss}}</h1>
+    <h1>loss=Rs.{{lstfields[0].loss}}</h1>
 </ng-template>
-<h3>expenses</h3>
-<h4>pesticide = {{lstfields[0].p_cost}}</h4>
-<h4>fertilizer = {{lstfields[0].f_cost}}</h4>
-<h4>seed = {{lstfields[0].s_cost}}</h4>
-<h4>labour = {{lstfields[0].l_cost}}</h4>
-<h3>earnings</h3>
-<h4>sold in {{lstfields[0].f_earning}}</h4>
+<h4>crop sold in Rs.{{lstfields[0].f_earning}}</h4>
+<h4>pesticide cost = Rs.{{lstfields[0].p_cost}}</h4>
+<h4>fertilizer cost = Rs.{{lstfields[0].f_cost}}</h4>
+<h4>seed cost = Rs.{{lstfields[0].s_cost}}</h4>
+<h4>labour cost = Rs.{{lstfields[0].l_cost}}</h4>
+<h3>Balance in warehouse = {{lstfields1[0].Crop_stored_quantity}} ton</h3>
 </div>

@@ -112,3 +112,6 @@ export class profitLoss {
     public l_cost: number;
     public f_earning: number;
 }
+export class cropbalance {
+    public Crop_stored_quantity: number;
+}
