@@ -92,4 +92,6 @@ export class MarketComponent implements OnInit {
     this.buttonClicked="none";
   }
 
+  displayedColumns: string[] = ['crop_market_id', 'crop_category', 'market_name', 'market_district', 'market_unit', 'crop_quantity', 'crop_price', 'crop_name', 'update', 'delete'];
+
 }

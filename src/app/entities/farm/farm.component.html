@@ -1,30 +1,57 @@
-&nbsp;<button mat-stroked-button color="primary" (click)="add()">Add new farm</button>&nbsp;
+&nbsp;<button mat-stroked-button (click)="add()" >Add new farm</button>&nbsp;
 <br> <br>
 <div *ngIf="buttonClicked!='none'">
-    &nbsp;<button mat-raised-button (click)="back()">back</button>
+    &nbsp;<button mat-stroked-button (click)="back()">back</button>
 </div>
 <div *ngIf="buttonClicked=='none'; else abc" >
-    <table>
-        <tr>
-            <th>farm_id</th>
-            <th>farmer_id</th>
-            <th>area</th>
-            <th>location</th>
-            <th>irrigation_src</th>
-        </tr>
-        <tr *ngFor="let field of lstfields">
-            <td>{{field.Farm_id}}</td>
-            <td>{{field.F_id}}</td>
-            <td>{{field.Farm_area}}</td>
-            <td>{{field.Farm_location}}</td>
-            <td>{{field.Farm_irrigation_source}}</td>
-            <td><button mat-raised-button (click)="loadData(field.Farm_id)">update</button></td>
-            <td><button mat-raised-button (click)="deleteFarm(field.Farm_id)">Delete</button></td>
-            
-        </tr>
-    </table> 
+    <table mat-table [dataSource]="lstfields" class="mat-elevation-z8">
+        <ng-container matColumnDef="Farm_id">
+          <th mat-header-cell *matHeaderCellDef> <b>Farm id</b> </th>
+          <td mat-cell *matCellDef="let element"> {{element.Farm_id}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="F_id">
+          <th mat-header-cell *matHeaderCellDef> <b>Farmer id</b> </th>
+          <td mat-cell *matCellDef="let element"> {{element.F_id}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="Farm_area">
+          <th mat-header-cell *matHeaderCellDef> <b>Farm area</b> </th>
+          <td mat-cell *matCellDef="let element"> {{element.Farm_area}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="Farm_location">
+          <th mat-header-cell *matHeaderCellDef> <b>Farm location</b> </th>
+          <td mat-cell *matCellDef="let element"> {{element.Farm_location}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="Farm_irrigation_source">
+            <th mat-header-cell *matHeaderCellDef> <b>Irrigation source</b> </th>
+            <td mat-cell *matCellDef="let element"> {{element.Farm_irrigation_source}} </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="update">
+            <th mat-header-cell *matHeaderCellDef> <b>Update</b> </th>
+            <td mat-cell *matCellDef="let element" class="action-link">
+                <button mat-stroked-button (click)="loadData(element.Farm_id)">update</button>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="delete">
+            <th mat-header-cell *matHeaderCellDef> <b>Delete</b> </th>
+            <td mat-cell *matCellDef="let element" class="action-link">
+                <button mat-stroked-button (click)="deleteFarm(element.Farm_id)">Delete</button>
+            </td>
+        </ng-container>
+    
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+
 </div>
+
 <ng-template #abc>
+<mat-card>
     <div>
         <form  [formGroup]="update1" novalidate>
             <mat-form-field appearance="fill">
@@ -60,5 +87,6 @@
             </ng-template>
             
         </form>
-    </div>
+    </div>   
+</mat-card>
 </ng-template>

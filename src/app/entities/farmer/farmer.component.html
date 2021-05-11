@@ -4,33 +4,25 @@
     &nbsp;<button mat-raised-button (click)="back()">back</button>
 </div>
 <div *ngIf="buttonClicked=='none'; else abc" >
-    <table>
-        <tr>
-            <th>id</th>
-            <th>first name</th>
-            <th>middle name</th>
-            <th>last name</th>
-            <th>address</th>
-            <th>phone No</th>
-            <th>telephone no</th>
-            <th>gender</th>
-            <th>city</th>
-            <th>password</th>
-    
-        </tr>
-        <tr *ngFor="let field of lstfields">
-            <td>{{field.F_id}}</td>
-            <td>{{field.F_fname}}</td>
-            <td>{{field.F_mname}}</td>
-            <td>{{field.F_lname}}</td>
-            <td>{{field.F_address}}</td>
-            <td>{{field.F_phoneNo}}</td>
-            <td>{{field.F_telephoneNo}}</td>
-            <td>{{field.F_gender}}</td>
-            <td>{{field.F_city}}</td>
-            <td>{{field.F_password}}</td>
-        </tr>
-    </table> 
+
+<mat-card>
+    <mat-card-title>Profile</mat-card-title>
+    <mat-card-content> <b>
+            ID={{lstfields[0].F_id}}
+            <br><br>
+            Name={{lstfields[0].F_fname}}
+            {{lstfields[0].F_mname}}
+            {{lstfields[0].F_lname}}
+            <br><br>
+            Address={{lstfields[0].F_address}}
+            <br><br>
+            Phone={{lstfields[0].F_phoneNo}}
+            <br><br>
+            Gender={{lstfields[0].F_gender}}
+        </b>
+    </mat-card-content>
+</mat-card>
+
 </div>
 <ng-template #abc>
     <div>

@@ -5,5 +5,19 @@ mat-form-field{
     width: 50%;
 }
 table{
-    text-align: center;
+    width: 80%;
+    background-color: white;
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 20px;
+}
+mat-card{
+    width: 60%;
+    margin: auto auto;
+    border-radius: 20px;
+}
+th{
+    color: brown;
+    font-size:medium;
 }

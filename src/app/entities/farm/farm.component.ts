@@ -7,6 +7,7 @@ import { farm } from '../../content/fields';
   templateUrl: './farm.component.html',
   styleUrls: ['./farm.component.css']
 })
+
 export class FarmComponent implements OnInit {
   lstfields:farm[];
   x=localStorage.getItem("sessionId");
@@ -77,4 +78,5 @@ export class FarmComponent implements OnInit {
     this.buttonClicked="none";
   }
 
+  displayedColumns: string[] = ['Farm_id', 'F_id', 'Farm_area', 'Farm_location', 'Farm_irrigation_source', 'update', 'delete'];
 }

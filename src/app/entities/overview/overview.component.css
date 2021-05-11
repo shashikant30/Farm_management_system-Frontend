@@ -1,3 +1,15 @@
 div{
     padding-left: 30px;
 }
+mat-card{
+    width: max-content;
+    margin: auto auto;
+    background-color: white;
+    border-radius: 20px;
+}
+.profit{
+    color:darkgreen;
+}
+.loss{
+    color: red;
+}

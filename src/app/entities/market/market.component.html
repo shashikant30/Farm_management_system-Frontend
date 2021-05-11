@@ -4,38 +4,70 @@
     &nbsp;<button mat-raised-button (click)="back()">back</button>
 </div>
 <div *ngIf="buttonClicked=='none'; else abc" >
-    <table>
-        <tr>
-            <th>crop_market_id</th>
-            <th>farmer_id</th>
-            <th>warehouse id</th>
-            <th>crop_id</th>
-            <th>crop category</th>
-            <th>market name</th>
-            <th>market district</th>
-            <th>market unit</th>
-            <th>crop quantity</th>
-            <th>crop_ price</th>
-            <th>date of sold</th>
-            <th>crop name</th>
-        </tr>
-        <tr *ngFor="let field of lstfields">
-            <td>{{field.Crop_market_id}}</td>
-            <td>{{field.F_id}}</td>
-            <td>{{field.Warehouse_id}}</td>
-            <td>{{field.Crop_id}}</td>
-            <td>{{field.Crop_category}}</td>
-            <td>{{field.Market_name}}</td>
-            <td>{{field.Market_district}}</td>
-            <td>{{field.Market_unit}}</td>
-            <td>{{field.Crop_quantity}}</td>
-            <td>{{field.Crop_price}}</td>
-            <td>{{field.Date_od_sold}}</td>
-            <td>{{field.crop_name}}</td>
-            <td><button mat-raised-button (click)="loadData(field.Crop_market_id)">Update</button></td>
-            <td><button mat-raised-button (click)="deleteMarket(field.Crop_market_id)">Delete</button></td>
-        </tr>
-    </table> 
+    <table mat-table [dataSource]="lstfields" class="mat-elevation-z8">
+        <ng-container matColumnDef="crop_market_id">
+          <th mat-header-cell *matHeaderCellDef> <b>Id</b> </th>
+          <td mat-cell *matCellDef="let element"> {{element.Crop_market_id}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="crop_category">
+          <th mat-header-cell *matHeaderCellDef> <b>Crop category</b> </th>
+          <td mat-cell *matCellDef="let element"> {{element.Crop_category}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="market_name">
+          <th mat-header-cell *matHeaderCellDef> <b>Market Name</b> </th>
+          <td mat-cell *matCellDef="let element"> {{element.Market_name}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="market_district">
+          <th mat-header-cell *matHeaderCellDef> <b>District</b> </th>
+          <td mat-cell *matCellDef="let element"> {{element.Market_district}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="market_unit">
+            <th mat-header-cell *matHeaderCellDef> <b>Market Unit</b> </th>
+            <td mat-cell *matCellDef="let element"> {{element.Market_unit}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="crop_quantity">
+            <th mat-header-cell *matHeaderCellDef> <b>Crop Quantity</b> </th>
+            <td mat-cell *matCellDef="let element"> {{element.Crop_quantity}} </td>
+          </ng-container>
+        
+          <ng-container matColumnDef="crop_price">
+            <th mat-header-cell *matHeaderCellDef> <b>price</b> </th>
+            <td mat-cell *matCellDef="let element"> {{element.Crop_price}} </td>
+          </ng-container>
+        
+         <!-- <ng-container matColumnDef="date_of_sold">
+            <th mat-header-cell *matHeaderCellDef> <b>Date of sold</b> </th>
+            <td mat-cell *matCellDef="let element"> {{element.Date_of_sold}} </td>
+          </ng-container>-->
+        
+          <ng-container matColumnDef="crop_name">
+              <th mat-header-cell *matHeaderCellDef> <b>Crop Name</b> </th>
+              <td mat-cell *matCellDef="let element"> {{element.crop_name}} </td>
+          </ng-container>
+    
+        <ng-container matColumnDef="update">
+            <th mat-header-cell *matHeaderCellDef> <b>Update</b> </th>
+            <td mat-cell *matCellDef="let element" class="action-link">
+                <button mat-stroked-button (click)="loadData(element.Crop_market_id)">update</button>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="delete">
+            <th mat-header-cell *matHeaderCellDef> <b>Delete</b> </th>
+            <td mat-cell *matCellDef="let element" class="action-link">
+                <button mat-stroked-button (click)="deleteMarket(element.Crop_market_id)">Delete</button>
+            </td>
+        </ng-container>
+    
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+   
 </div>
 <ng-template #abc>
     <div>

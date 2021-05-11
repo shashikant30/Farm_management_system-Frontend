@@ -76,4 +76,6 @@ export class CropComponent implements OnInit {
     this.buttonClicked="none";
   }
 
+  displayedColumns: string[] = ['crop_id', 'crop_name', 'crop_quantity', 'update', 'delete'];
+
 }

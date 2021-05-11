@@ -4,6 +4,9 @@ form{
 mat-form-field{
     width: 50%;
 }
-table{
-    text-align: center;
+mat-card{
+    width: max-content;
+    margin: auto auto;
+    background-color: white;
+    border-radius: 20px;
 }

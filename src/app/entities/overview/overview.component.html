@@ -7,16 +7,28 @@
         <br>
             <button mat-raised-button type="submit" (click)="pl()">Search</button>
     </form>
-<div *ngIf="lstfields[0].profit!=0; else loss">
-    <h1>profit=Rs.{{lstfields[0].profit}}</h1>
-</div>
-<ng-template #loss>
-    <h1>loss=Rs.{{lstfields[0].loss}}</h1>
-</ng-template>
-<h4>crop sold in Rs.{{lstfields[0].f_earning}}</h4>
-<h4>pesticide cost = Rs.{{lstfields[0].p_cost}}</h4>
-<h4>fertilizer cost = Rs.{{lstfields[0].f_cost}}</h4>
-<h4>seed cost = Rs.{{lstfields[0].s_cost}}</h4>
-<h4>labour cost = Rs.{{lstfields[0].l_cost}}</h4>
-<h3>Balance in warehouse = {{lstfields1[0].Crop_stored_quantity}} ton</h3>
+<mat-card>
+    <div *ngIf="lstfields[0].profit!=0; else loss" class="profit">
+        <mat-card-title>Profit=Rs.{{lstfields[0].profit}}</mat-card-title>
+    </div>
+    <ng-template #loss class="loss">
+        <mat-card-title>Loss=Rs.{{lstfields[0].loss}}</mat-card-title>
+    </ng-template>
+    <mat-card-content>
+        <b><h3>
+        Crop sold in Rs.{{lstfields[0].f_earning}}
+        <br><br>
+        Pesticide cost = Rs.{{lstfields[0].p_cost}}
+        <br><br>
+        Fertilizer cost = Rs.{{lstfields[0].f_cost}}
+        <br><br>
+        Seed cost = Rs.{{lstfields[0].s_cost}}
+        <br><br>
+        Labour cost = Rs.{{lstfields[0].l_cost}}
+        <br><br>
+        Balance in warehouse = {{lstfields1[0].Crop_stored_quantity}} ton
+        </h3></b>
+    </mat-card-content>
+    
+</mat-card>
 </div>
