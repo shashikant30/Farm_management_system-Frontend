@@ -1,7 +1,7 @@
-&nbsp;<button mat-stroked-button (click)="add()" >Add new farm</button>&nbsp;
+&nbsp;<button mat-raised-button (click)="add()" >Add new farm</button>&nbsp;
 <br> <br>
 <div *ngIf="buttonClicked!='none'">
-    &nbsp;<button mat-stroked-button (click)="back()">back</button>
+    &nbsp;<button mat-raised-button (click)="back()">back</button>
 </div>
 <div *ngIf="buttonClicked=='none'; else abc" >
     <table mat-table [dataSource]="lstfields" class="mat-elevation-z8">

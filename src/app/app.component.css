@@ -1,9 +1,19 @@
 nav{
-    background-color: chocolate;
+    background-color: sandybrown;
 }
 
 a{
-    color: white;
+    color:black;
     font-family: 'Times New Roman', Times, serif;
     font-weight: bold;
 }
+/*.menu{
+    background-image: url('../assets/images/bb.jpg');
+    background-position: right;
+    background-size:cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    overflow-x: scroll;
+}*/

@@ -13,9 +13,10 @@ table{
     border-radius: 20px;
 }
 mat-card{
-    width: 60%;
+    width: 50%;
     margin: auto auto;
     border-radius: 20px;
+    background-color:lightgoldenrodyellow;
 }
 th{
     color: brown;

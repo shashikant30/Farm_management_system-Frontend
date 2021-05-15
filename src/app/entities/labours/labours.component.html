@@ -1,45 +1,86 @@
-&nbsp;<button mat-stroked-button color="primary" (click)="add()">Add new Labour</button>&nbsp;
+&nbsp;<button mat-raised-button  (click)="add()">Add new Labour</button>&nbsp;
 <br> <br>
 <div *ngIf="buttonClicked!='none'">
     &nbsp;<button mat-raised-button (click)="back()">back</button>
 </div>
 <div *ngIf="buttonClicked=='none'; else abc" >
-    <table>
-        <tr>
-            <th>labour_id</th>
-            <th>farmer_id</th>
-            <th>first name</th>
-            <th>middle name</th>
-            <th>last name</th>
-            <th>address</th>
-            <th>phone</th>
-            <th>telephone</th>
-            <th>work</th>
-            <th>working hours</th>
-            <th>salary</th>
-            <th>city</th>
-            <th>crop id</th>
-        </tr>
-        <tr *ngFor="let field of lstfields">
-            <td>{{field.L_id}}</td>
-            <td>{{field.F_id}}</td>
-            <td>{{field.L_fname}}</td>
-            <td>{{field.L_mname}}</td>
-            <td>{{field.L_lname}}</td>
-            <td>{{field.L_address}}</td>
-            <td>{{field.L_phoneNo}}</td>
-            <td>{{field.L_telephoneNo}}</td>
-            <td>{{field.Work}}</td>
-            <td>{{field.Working_hours}}</td>
-            <td>{{field.Salary}}</td>
-            <td>{{field.L_city}}</td>
-            <td>{{field.CropId}}</td>
-            <td><button mat-raised-button (click)="loadData(field.L_id)">Update</button></td>
-            <td><button mat-raised-button (click)="deleteLabour(field.L_id)">Delete</button></td>
-        </tr>
-    </table> 
+    <table mat-table [dataSource]="lstfields" class="mat-elevation-z8">
+        <ng-container matColumnDef="labour_id">
+          <th mat-header-cell *matHeaderCellDef> <b>Labour id</b> </th>
+          <td mat-cell *matCellDef="let element"> {{element.L_id}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="first_name">
+          <th mat-header-cell *matHeaderCellDef> <b>First Name</b> </th>
+          <td mat-cell *matCellDef="let element"> {{element.L_fname}} </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="middle_name">
+          <th mat-header-cell *matHeaderCellDef> <b>Middle Name</b> </th>
+          <td mat-cell *matCellDef="let element"> {{element.L_mname}} </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="last_name">
+          <th mat-header-cell *matHeaderCellDef> <b>Last Name</b> </th>
+          <td mat-cell *matCellDef="let element"> {{element.L_lname}} </td>
+        </ng-container>
+    
+          <ng-container matColumnDef="address">
+            <th mat-header-cell *matHeaderCellDef> <b>Address</b> </th>
+            <td mat-cell *matCellDef="let element"> {{element.L_address}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="phone">
+          <th mat-header-cell *matHeaderCellDef> <b>Phone No</b> </th>
+          <td mat-cell *matCellDef="let element"> {{element.L_phoneNo}} </td>
+        </ng-container>
+    
+    <!--    <ng-container matColumnDef="telephone">
+            <th mat-header-cell *matHeaderCellDef> <b>Telephone No</b> </th>
+            <td mat-cell *matCellDef="let element"> {{element.L_telephoneNo}} </td>
+        </ng-container> -->
+            
+        <ng-container matColumnDef="work">
+          <th mat-header-cell *matHeaderCellDef> <b>Role</b> </th>
+          <td mat-cell *matCellDef="let element"> {{element.Work}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="salary">
+          <th mat-header-cell *matHeaderCellDef> <b>Salary</b> </th>
+          <td mat-cell *matCellDef="let element"> {{element.Salary}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="city">
+          <th mat-header-cell *matHeaderCellDef> <b>City</b> </th>
+          <td mat-cell *matCellDef="let element"> {{element.L_city}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="crop_id">
+          <th mat-header-cell *matHeaderCellDef> <b>Crop Id</b> </th>
+          <td mat-cell *matCellDef="let element"> {{element.CropId}} </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="update">
+            <th mat-header-cell *matHeaderCellDef> <b>Update</b> </th>
+            <td mat-cell *matCellDef="let element" class="action-link">
+                <button mat-stroked-button (click)="loadData(element.L_id)">update</button>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="delete">
+            <th mat-header-cell *matHeaderCellDef> <b>Delete</b> </th>
+            <td mat-cell *matCellDef="let element" class="action-link">
+                <button mat-stroked-button (click)="deleteLabour(element.L_id)">Delete</button>
+            </td>
+        </ng-container>
+    
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    
 </div>
 <ng-template #abc>
+    <mat-card>
     <div>
         <form  [formGroup]="Labour" novalidate>
             <mat-form-field appearance="fill">
@@ -116,4 +157,5 @@
             
         </form>
     </div>
+</mat-card>
 </ng-template>

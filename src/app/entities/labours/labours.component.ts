@@ -94,4 +94,6 @@ export class LaboursComponent implements OnInit {
     this.buttonClicked="none";
   }
 
+  displayedColumns: string[] = ['labour_id','first_name','middle_name','last_name','address','phone',/*'telephone',*/'work','salary','city','crop_id','update','delete'];
+
 }

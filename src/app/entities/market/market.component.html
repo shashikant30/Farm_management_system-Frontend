@@ -1,4 +1,4 @@
-&nbsp;<button mat-stroked-button color="primary" (click)="add()">Add new Market</button>&nbsp;
+&nbsp;<button mat-raised-button  (click)="add()">Add new Market</button>&nbsp;
 <br> <br>
 <div *ngIf="buttonClicked!='none'">
     &nbsp;<button mat-raised-button (click)="back()">back</button>
@@ -70,6 +70,7 @@
    
 </div>
 <ng-template #abc>
+    <mat-card>
     <div>
         <form  [formGroup]="Market" novalidate>
             <mat-form-field appearance="fill">
@@ -141,4 +142,5 @@
             
         </form>
     </div>
+</mat-card>
 </ng-template>

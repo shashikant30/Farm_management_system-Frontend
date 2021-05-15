@@ -10,3 +10,9 @@ h3{
 button{
     color: brown;
 }
+mat-card{
+    width: 50%;
+    margin: auto auto;
+    border-radius: 20px;
+    background-color:lightgoldenrodyellow;
+}

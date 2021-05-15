@@ -1,4 +1,5 @@
 <div>
+    <mat-card>
         <form (ngSubmit)="onSubmit()" [formGroup]="upc" novalidate>
             <mat-form-field appearance="fill">
                 <mat-label>Enter username of your choice</mat-label>
@@ -18,7 +19,9 @@
             <button mat-raised-button type="submit">Continue</button>
             <br>
         </form>
+    </mat-card>
         <div *ngIf="validCredential">
+            <mat-card>
             <h1>Complete Profile to register</h1>
             <form (ngSubmit)="onSubmit1()" [formGroup]="cf" novalidate>
                 <mat-form-field appearance="fill">
@@ -65,5 +68,6 @@
                 <button mat-raised-button type="submit">Register</button>
                 <br>
             </form>
+        </mat-card>
         </div>
 </div>

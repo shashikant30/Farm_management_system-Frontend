@@ -1,31 +1,56 @@
-&nbsp;<button mat-stroked-button color="primary" (click)="add()">Add new Warehouse</button>&nbsp;
+&nbsp;<button mat-raised-button  (click)="add()">Add new Warehouse</button>&nbsp;
 <br> <br>
 <div *ngIf="buttonClicked!='none'">
     &nbsp;<button mat-raised-button (click)="back()">back</button>
 </div>
 <div *ngIf="buttonClicked=='none'; else abc" >
-    <table>
-        <tr>
-            <th>crop_id</th>
-            <th>warehouse id</th>
-            <th>crop name</th>
-            <th>crop_stored_quantity</th>
-            <th>total capacity</th>
-            <th>farmer_id</th>
-        </tr>
-        <tr *ngFor="let field of lstfields">
-            <td>{{field.Crop_id}}</td>
-            <td>{{field.Warehouse_id}}</td>
-            <td>{{field.Crop_name}}</td>
-            <td>{{field.Crop_stored_quantity}}</td>
-            <td>{{field.Total_capacity}}</td>
-            <td>{{field.F_id}}</td>
-            <td><button mat-raised-button (click)="loadData(field.Warehouse_id)">Update</button>
-            <td><button mat-raised-button (click)="deleteWarehouse(field.Warehouse_id)">Delete</button>
-        </tr>
-    </table>
+    <table mat-table [dataSource]="lstfields" class="mat-elevation-z8">
+        <ng-container matColumnDef="crop_id">
+          <th mat-header-cell *matHeaderCellDef> <b>Crop id</b> </th>
+          <td mat-cell *matCellDef="let element"> {{element.Crop_id}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="warehouse_id">
+          <th mat-header-cell *matHeaderCellDef> <b>Warehouse id</b> </th>
+          <td mat-cell *matCellDef="let element"> {{element.Warehouse_id}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="crop_name">
+          <th mat-header-cell *matHeaderCellDef> <b>Crop Name</b> </th>
+          <td mat-cell *matCellDef="let element"> {{element.Crop_name}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="crop_stored_quantity">
+          <th mat-header-cell *matHeaderCellDef> <b>Stored Quantity</b> </th>
+          <td mat-cell *matCellDef="let element"> {{element.Crop_stored_quantity}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="total_capacity">
+            <th mat-header-cell *matHeaderCellDef> <b>Total Capacity</b> </th>
+            <td mat-cell *matCellDef="let element"> {{element.Total_capacity}} </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="update">
+            <th mat-header-cell *matHeaderCellDef> <b>Update</b> </th>
+            <td mat-cell *matCellDef="let element" class="action-link">
+                <button mat-stroked-button (click)="loadData(element.Warehouse_id)">update</button>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="delete">
+            <th mat-header-cell *matHeaderCellDef> <b>Delete</b> </th>
+            <td mat-cell *matCellDef="let element" class="action-link">
+                <button mat-stroked-button (click)="deleteWarehouse(element.warehouse_id)">Delete</button>
+            </td>
+        </ng-container>
+    
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    
 </div>
 <ng-template #abc>
+    <mat-card>
     <div>
         <form  [formGroup]="Warehouse" novalidate>
             <mat-form-field appearance="fill">
@@ -67,4 +92,5 @@
             
         </form>
     </div>
+</mat-card>
 </ng-template>

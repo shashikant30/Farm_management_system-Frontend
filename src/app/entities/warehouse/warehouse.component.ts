@@ -81,4 +81,6 @@ export class WarehouseComponent implements OnInit {
     this.buttonClicked="none";
   }
 
+  displayedColumns: string[] = ['crop_id', 'warehouse_id', 'crop_name', 'crop_stored_quantity', 'total_capacity', 'update', 'delete'];
+
 }

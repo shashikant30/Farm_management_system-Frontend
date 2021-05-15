@@ -1,4 +1,4 @@
-&nbsp;<button mat-stroked-button color="primary" (click)="add()">Add New Crop</button>&nbsp;
+&nbsp;<button mat-raised-button  (click)="add()">Add New Crop</button>&nbsp;
 <br> <br>
 <div *ngIf="buttonClicked!='none'">
     &nbsp;<button mat-raised-button (click)="back()">back</button>
@@ -39,6 +39,7 @@
       </table>
 </div>
 <ng-template #abc>
+    <mat-card>
     <div>
         <form  [formGroup]="Crop" novalidate>
             <mat-form-field appearance="fill">
@@ -75,6 +76,7 @@
             
         </form>
     </div>
+</mat-card>
 </ng-template>
 
 

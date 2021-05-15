@@ -87,4 +87,6 @@ export class FertilizersComponent implements OnInit {
     this.buttonClicked="none";
   }
 
+  displayedColumns: string[] = ['fertilizer_id','fertilizer_name','fertilizer_rate','fertilizer_quantity','company_name','formulation', 'update', 'delete'];
+
 }

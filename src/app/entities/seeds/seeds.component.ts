@@ -86,4 +86,6 @@ export class SeedsComponent implements OnInit {
     this.buttonClicked="none";
   }
 
+  displayedColumns: string[] = ['seed_id','seed_name','seed_type','seed_category','seed_rate','seed_quantity','company_name', 'update', 'delete'];
+
 }

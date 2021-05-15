@@ -84,4 +84,6 @@ export class PesticidesComponent implements OnInit {
     this.buttonClicked="none";
   }
 
+  displayedColumns: string[] = ['pesticide_id','pesticide_name','pesticide_rate','pesticide_quantity','company_name','formulation', 'update', 'delete'];
+
 }
